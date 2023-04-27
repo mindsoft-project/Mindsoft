@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/unroll"
+        android:icon="@drawable/ic_close"
+        android:title="Unsubscribe course"
+        android:visible="true" />
+    <item
+        android:id="@+id/edit"
+        android:icon="@drawable/ic_edit_note"
+        android:title="Edit course"
+        android:visible="false" />
+    <item
+        android:id="@+id/teaching_assistants"
+        android:icon="@drawable/ic_round_group_24"
+        android:title="Teaching assistants"
+        android:visible="false" />
+    <item
+        android:id="@+id/delete"
+        android:icon="@drawable/ic_delete"
+        android:title="Delete course"
+        android:visible="false" />
+    <item
+        android:id="@+id/export_attendance"
+        android:icon="@drawable/ic_download"
+        android:title="Download attendance"
+        android:visible="false" />
+
+</menu>

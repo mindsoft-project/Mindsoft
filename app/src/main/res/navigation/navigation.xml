@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation"
+    app:startDestination="@id/main_page">
+    <fragment
+        android:id="@+id/main_page"
+        android:name="com.mindsoft.ui.fragments.MainPageFragment"
+        android:label="Main Page">
+        <action
+            android:id="@+id/action_main_page_to_student_home"
+            app:destination="@id/student_home" />
+        <action
+            android:id="@+id/action_main_page_to_professor_home"
+            app:destination="@id/professor_home" />
+        <action
+            android:id="@+id/action_main_page_to_assistant_home"
+            app:destination="@id/assistant_home" />
+
+        <action
+            android:id="@+id/action_main_page_to_validation_required"
+            app:destination="@id/validation_required" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/professor_home"
+        android:name="com.mindsoft.ui.fragments.ProfessorHomeFragment"
+        android:label="Professor Home">
+
+        <action
+            android:id="@+id/action_professor_to_add_course"
+            app:destination="@id/add_course" />
+
+        <action
+            android:id="@+id/action_professor_to_course"
+            app:destination="@id/course_page" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/add_course"
+        android:name="com.mindsoft.ui.fragments.AddCourseFragment"
+        android:label="Add Course" />
+
+    <fragment
+        android:id="@+id/course_list"
+        android:name="com.mindsoft.ui.fragments.CourseListFragment"
+        android:label="Course List" />
+
+    <fragment
+        android:id="@+id/course_page"
+        android:name="com.mindsoft.ui.fragments.CoursePageFragment"
+        android:label="Course Page">
+
+        <action
+            android:id="@+id/action_course_to_main"
+            app:destination="@id/main_page" />
+
+        <action
+            android:id="@+id/action_course_to_session"
+            app:destination="@id/course_session" />
+
+        <action
+            android:id="@+id/action_course_to_start_session"
+            app:destination="@id/start_session" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/course_session"
+        android:name="com.mindsoft.ui.fragments.CourseSessionFragment"
+        android:label="Course Session" />
+
+    <fragment
+        android:id="@+id/validation_required"
+        android:name="com.mindsoft.ui.fragments.ValidationRequired"
+        android:label="Validation Required">
+
+        <action
+            android:id="@+id/action_validation_required_to_main_page"
+            app:destination="@id/main_page" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/start_session"
+        android:name="com.mindsoft.ui.fragments.StartSessionFragment"
+        android:label="Start Session Session">
+
+        <action
+            android:id="@+id/action_start_session_to_session"
+            app:destination="@id/course_session" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/assistant_home"
+        android:name="com.mindsoft.ui.fragments.AssistantHomeFragment"
+        android:label="Assistant Home">
+        <action
+            android:id="@+id/action_assistant_to_course"
+            app:destination="@id/course_page" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/student_home"
+        android:name="com.mindsoft.ui.fragments.StudentHomeFragment"
+        android:label="Student Home">
+
+        <action
+            android:id="@+id/action_student_to_course"
+            app:destination="@id/course_page" />
+
+        <action
+            android:id="@+id/action_student_to_course_list"
+            app:destination="@id/course_list" />
+    </fragment>
+</navigation>

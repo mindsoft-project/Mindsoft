@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="title_president">President</string>
+    <string name="title_dean">Dean</string>
+    <string name="title_student_affairs">Student Affairs</string>
+    <string name="title_dept_manager">Department Manager</string>
+    <string name="title_professor">Professor</string>
+    <string name="title_student">Student</string>
+    <string name="title_teaching_assistant">Teaching Assistant</string>
+    <string name="title_developer">Developer</string>
+    <string name="title_admin">Administrator</string>
+    <string name="title_none">None</string>
+</resources>

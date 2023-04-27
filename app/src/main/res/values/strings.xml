@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Mindsoft</string>
+
+    <string name="student_title">%1$s at %2$s, %3$s Year</string>
+
+    <string name="course_professor">By Dr. $1</string>
+    <string-array name="user_type">
+        <item>Student</item>
+        <item>Teaching Assistant</item>
+        <item>Professor</item>
+    </string-array>
+
+
+    <string-array name="program">
+        <item>ICT</item>
+        <item>Mechatronics</item>
+        <item>Autotronics</item>
+        <item>Renewable Energy</item>
+        <item>Petroleum</item>
+        <item>Prosthetics and Orthotics</item>
+    </string-array>
+</resources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dept_ict">ICT</string>
+    <string name="dept_petroleum">Petroleum</string>
+    <string name="dept_mechatronics">Mechatronics</string>
+    <string name="dept_autotronics">Autotronics</string>
+    <string name="dept_renewable_energy">Renewable Energy</string>
+    <string name="dept_prosthetics">Prosthetics and Orthotics</string>
+    <string name="dept_null">Undefined</string>
+</resources>

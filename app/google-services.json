@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "361210942227",
+    "project_id": "mindsoft-60477",
+    "firebase_url": "https://mindsoft-60477-default-rtdb.europe-west1.firebasedatabase.app",
+    "storage_bucket": "mindsoft-60477.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:361210942227:android:ee327df8358c4934db40e6",
+        "android_client_info": {
+          "package_name": "com.mindsoft"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "361210942227-t2nkvo8tvopnuoq8ipv6h6qvh1l6u54m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDLC5R2eeClZWhkED8yPrfU978YoTTDz2Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "361210942227-t2nkvo8tvopnuoq8ipv6h6qvh1l6u54m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
