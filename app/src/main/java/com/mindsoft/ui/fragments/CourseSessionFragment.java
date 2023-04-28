@@ -334,7 +334,7 @@ public class CourseSessionFragment extends Fragment {
             if (!data.containsKey(student.getSection())) {
                 data.put(student.getSection(), new HashMap<>());
             }
-            data.get(student.getSection()).put(student.getFullName(), attendance.getAttended().containsKey(student.getId()));
+            data.get(student.getSection()).put(student.getFullName(), attendance.getAttended().getOrDefault(student.getId(), false));
         }
 
         Map<Integer, XSSFSheet> sheets = new HashMap<>();
@@ -386,7 +386,7 @@ public class CourseSessionFragment extends Fragment {
                 stdName.setCellValue(info.getKey());
                 stdName.setCellStyle(bordered);
                 XSSFCell stdAttended = studentRow.createCell(2);
-                stdAttended.setCellValue(Boolean.TRUE.equals(info.getValue()) ? "T" : "F");
+                stdAttended.setCellValue(info.getValue() ? "T" : "F");
                 stdAttended.setCellStyle(bordered);
 
                 File downloadsDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
