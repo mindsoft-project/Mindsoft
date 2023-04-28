@@ -33,6 +33,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.mindsoft.R;
 import com.mindsoft.data.model.Course;
 import com.mindsoft.data.model.CourseAttendance;
 import com.mindsoft.data.model.CourseSession;
@@ -255,6 +256,9 @@ public class CourseSessionFragment extends Fragment {
                                                     binding.close.setOnClickListener(v -> {
                                                         session.setStatus(1);
                                                         session.getReference().set(session).addOnSuccessListener(unused -> {
+                                                            Bundle bundle = new Bundle();
+                                                            bundle.putString("courseId", courseId);
+                                                            mNavController.navigate(R.id.action_session_to_course, bundle);
                                                         });
                                                     });
 
@@ -382,7 +386,7 @@ public class CourseSessionFragment extends Fragment {
                 stdName.setCellValue(info.getKey());
                 stdName.setCellStyle(bordered);
                 XSSFCell stdAttended = studentRow.createCell(2);
-                stdAttended.setCellValue(info.getValue() ? "T" : "F");
+                stdAttended.setCellValue(Boolean.TRUE.equals(info.getValue()) ? "T" : "F");
                 stdAttended.setCellStyle(bordered);
 
                 File downloadsDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);

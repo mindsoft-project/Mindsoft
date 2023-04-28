@@ -68,7 +68,11 @@
     <fragment
         android:id="@+id/course_session"
         android:name="com.mindsoft.ui.fragments.CourseSessionFragment"
-        android:label="Course Session" />
+        android:label="Course Session">
+        <action
+            android:id="@+id/action_session_to_course"
+            app:destination="@id/course_page" />
+    </fragment>
 
     <fragment
         android:id="@+id/validation_required"
