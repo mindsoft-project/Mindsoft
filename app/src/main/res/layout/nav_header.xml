@@ -13,7 +13,7 @@
             android:id="@+id/profilePhoto"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:layout_gravity="start"
+            android:layout_gravity="center"
             android:layout_marginTop="24dp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/rounded_image_view"
@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:fontFamily="@font/almarai_bold"
-            android:gravity="start"
+            android:gravity="center"
             android:text="Display Name"
             android:textColor="@color/primary"
             android:textSize="16sp" />
@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:fontFamily="@font/almarai_light"
-            android:gravity="start"
+            android:gravity="center"
             android:text="Title"
             android:textSize="14sp" />
 

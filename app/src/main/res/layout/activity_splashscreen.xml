@@ -48,7 +48,6 @@
         app:layout_constraintVertical_bias="0.367"
         app:tint="@color/primary" />
 
-
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -96,8 +96,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:fontFamily="@font/almarai_light"
-                android:gravity="end"
-                android:text="" />
+                android:gravity="right" />
         </LinearLayout>
 
         <LinearLayout

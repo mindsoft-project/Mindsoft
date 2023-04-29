@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.mindsoft.data.repoistory.SystemRepository;
 import com.mindsoft.databinding.ActivitySplashscreenBinding;
 
 public class SplashscreenActivity extends AppCompatActivity {
@@ -32,7 +33,6 @@ public class SplashscreenActivity extends AppCompatActivity {
         FirebaseAuth auth = FirebaseAuth.getInstance();
 
         FirebaseUser user = auth.getCurrentUser();
-
 
         new Handler().postDelayed(() -> {
             if (user != null) {

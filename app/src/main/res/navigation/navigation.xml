@@ -20,6 +20,10 @@
         <action
             android:id="@+id/action_main_page_to_validation_required"
             app:destination="@id/validation_required" />
+
+        <action
+            android:id="@+id/action_main_page_to_additional_info"
+            app:destination="@id/additional_info" />
     </fragment>
 
     <fragment
@@ -103,6 +107,15 @@
         <action
             android:id="@+id/action_assistant_to_course"
             app:destination="@id/course_page" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/additional_info"
+        android:name="com.mindsoft.ui.fragments.AdditionalInfoFragment"
+        android:label="Additional Information">
+        <action
+            android:id="@+id/action_additional_info_to_main_page"
+            app:destination="@+id/main_page" />
     </fragment>
 
     <fragment

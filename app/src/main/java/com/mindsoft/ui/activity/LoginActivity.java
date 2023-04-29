@@ -35,6 +35,11 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        binding.findStudentCode.setOnClickListener(v -> {
+            Intent intent = new Intent(this, FindMyStudentCodeActivity.class);
+            startActivity(intent);
+        });
+
         binding.submit.setOnClickListener(v -> {
             String email = binding.email.getText().toString();
             String password = binding.password.getText().toString();
@@ -56,16 +61,18 @@ public class LoginActivity extends AppCompatActivity {
                 public void onSuccess() {
                     FirebaseFirestore db = FirebaseFirestore.getInstance();
                     FirebaseUser mUser = FirebaseAuth.getInstance().getCurrentUser();
-                    db.collection(User.COLLECTION).document(mUser.getUid())
-                            .get()
-                            .addOnSuccessListener(command -> {
-                                User user = command.toObject(User.class);
-                                if (user == null) return;
+                    if (mUser != null) {
+                        db.collection(User.COLLECTION).document(mUser.getUid())
+                                .get()
+                                .addOnSuccessListener(command -> {
+                                    User user = command.toObject(User.class);
+                                    if (user == null) return;
 
-                                Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                startActivity(intent);
-                            });
+                                    Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                    startActivity(intent);
+                                });
+                    }
                 }
 
                 @Override

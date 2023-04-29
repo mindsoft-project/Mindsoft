@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/almarai_extra_bold"
+        android:text="Additional Information"
+        android:textSize="25sp" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginBottom="20dp"
+        android:src="@drawable/label_shape" />
+
+    <LinearLayout
+        android:id="@+id/section_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/almarai_bold"
+            android:text="Section Number"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/section"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:autofilledHighlight="@null"
+            android:background="@drawable/input_shape"
+            android:fontFamily="@font/font_almarai_light"
+            android:hint="1"
+            android:inputType="number"
+            android:padding="10dp"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/primary"
+        android:fontFamily="@font/font_almarai_regular"
+        android:stateListAnimator="@null"
+        android:text="SUBMIT"
+        android:textColor="@color/on_dark" />
+</LinearLayout>

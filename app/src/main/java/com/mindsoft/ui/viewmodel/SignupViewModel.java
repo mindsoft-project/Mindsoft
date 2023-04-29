@@ -68,7 +68,6 @@ public class SignupViewModel extends ViewModel {
                     return;
                 }
 
-
                 student.setUser(user.getReference());
                 student.setId(user.getId());
 

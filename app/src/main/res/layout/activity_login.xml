@@ -31,7 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/font_almarai_light"
-            android:text="Email address"
+            android:text="Email address  or  Student code"
             android:textSize="18sp" />
 
         <EditText
@@ -42,7 +42,7 @@
             android:autofilledHighlight="@null"
             android:background="@drawable/input_shape"
             android:fontFamily="@font/font_almarai_light"
-            android:hint="name@nctu.edu.eg"
+            android:hint="20220200@nctu.edu.eg  / 20220200"
             android:inputType="textEmailAddress"
             android:padding="10dp"
             android:textSize="15sp" />
@@ -74,13 +74,29 @@
             android:text="Submit"
             android:textColor="@color/on_dark" />
 
+
         <TextView
+            android:id="@+id/forgetPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:fontFamily="@font/font_almarai_extra_bold"
+            android:layout_weight="1"
+            android:fontFamily="@font/font_almarai_light"
             android:text="Forget password?"
+            android:textAllCaps="true"
             android:textColor="@color/primary"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/findStudentCode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/font_almarai_light"
+            android:text="Find my student code"
+            android:textAllCaps="true"
+            android:textColor="@color/secondary"
             android:textSize="16sp" />
 
         <ImageView

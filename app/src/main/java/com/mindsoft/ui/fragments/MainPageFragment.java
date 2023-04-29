@@ -82,8 +82,8 @@ public class MainPageFragment extends Fragment {
                                     if (command.isSuccessful()) {
                                         Student.current = command.getResult().toObject(Student.class);
 
-                                        System.out.println(Student.current);
                                         if (Student.current == null) return;
+
 
                                         if (User.current.getTitle() == 0) {
                                             String roleTitle = getString(User.current.getPreferredTitle());
@@ -92,20 +92,27 @@ public class MainPageFragment extends Fragment {
                                             roleView.setText(getString(R.string.student_title, roleTitle, dept, year));
                                         }
 
+                                        boolean missingSection = Student.current.getSection() == 0;
+                                        if (missingSection) {
+                                            Bundle bundle = new Bundle();
+                                            bundle.putBoolean("section", true);
+                                            navController.navigate(R.id.action_main_page_to_additional_info, bundle);
+                                            return;
+                                        }
+
                                         if (!User.current.isFaceValidated()) {
                                             Intent intent = new Intent(activity, DetectorActivity.class);
                                             intent.putExtra("train_mode", true);
                                             intent.putExtra("title", "We need to identify your identity to continue your sign up request.");
 
                                             startActivity(intent);
-                                            return;
                                         }
 
                                         if (!User.current.isValidated()) {
                                             navController.navigate(R.id.action_main_page_to_validation_required);
                                             return;
                                         }
-                                        
+
                                         navController.navigate(R.id.action_main_page_to_student_home);
                                     } else {
                                         mAuth.signOut();

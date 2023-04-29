@@ -467,20 +467,21 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
             final SimilarityClassifier.Recognition result = new SimilarityClassifier.Recognition(
                     "0", label, confidence, boundingBox);
 
-            if (confidence > 0.50f) {
-                if (onComplete != null) {
-                    onComplete.onComplete(true);
-                }
-                finish();
-            } else {
-                TRIES -= 1;
-                if (TRIES == 0) {
+            if (!isTraining) {
+                if (confidence > 0.50f) {
                     if (onComplete != null) {
-                        onComplete.onComplete(false);
+                        onComplete.onComplete(true);
                     }
                     finish();
+                } else {
+                    TRIES -= 1;
+                    if (TRIES == 0) {
+                        if (onComplete != null) {
+                            onComplete.onComplete(false);
+                        }
+                        finish();
+                    }
                 }
-
             }
 
             result.setColor(color);
