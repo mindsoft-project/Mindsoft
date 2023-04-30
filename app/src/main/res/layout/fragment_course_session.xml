@@ -132,8 +132,8 @@
             android:textColor="@color/success"
             android:textSize="20sp"
             android:visibility="gone" />
-    </LinearLayout>
-
+    </LinearLayout>"
+        android:layout_height=""
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"

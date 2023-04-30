@@ -43,6 +43,8 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import java.util.ArrayList;
+
 public class CoursePageFragment extends Fragment {
     private FragmentCoursePageBinding binding;
     private FirebaseAuth mAuth;
@@ -75,8 +77,17 @@ public class CoursePageFragment extends Fragment {
         menu.getMenuInflater().inflate(R.menu.course_page_menu, menu.getMenu());
         menu.setOnMenuItemClickListener(this::onMenuItemClick);
 
+
         if (!courseId.isEmpty()) {
             DocumentReference ref = db.collection(Course.COLLECTION).document(courseId);
+
+            CourseSessionsAdapter adapter = new CourseSessionsAdapter(new ArrayList<>(), session -> {
+                Bundle bundle = new Bundle();
+                bundle.putString("sessionId", session.getId());
+                bundle.putString("courseId", courseId);
+                mNavController.navigate(R.id.action_course_to_session, bundle);
+            });
+            recyclerView.setAdapter(adapter);
 
             ref.get().addOnCompleteListener(task -> {
                 if (task.isSuccessful()) {
@@ -84,19 +95,18 @@ public class CoursePageFragment extends Fragment {
 
                     if (course == null) return;
 
+                    binding.refresh.setOnRefreshListener(() -> {
+                        CourseRepository.getInstance().getSessions(course)
+                                .observe(requireActivity(), adapter::setSessionList);
+                        adapter.notifyDataSetChanged();
+                    });
+
                     CourseRepository.getInstance().getSessions(course)
-                            .observe(requireActivity(), sessionList -> {
-                                recyclerView.setAdapter(new CourseSessionsAdapter(sessionList, session -> {
-                                    Bundle bundle = new Bundle();
-                                    bundle.putString("sessionId", session.getId());
-                                    bundle.putString("courseId", courseId);
-                                    mNavController.navigate(R.id.action_course_to_session, bundle);
-                                }));
-                            });
+                            .observe(requireActivity(), adapter::setSessionList);
+                    adapter.notifyDataSetChanged();
 
                     binding.menu.setOnClickListener(v -> {
                         menu.show();
-                        System.out.println("DX");
                     });
 
                     binding.courseName.setText(course.getName());

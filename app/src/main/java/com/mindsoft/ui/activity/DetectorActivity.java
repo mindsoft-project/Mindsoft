@@ -116,7 +116,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
     public static onDetectCompleteListener onComplete;
 
     public interface onDetectCompleteListener {
-        void onComplete(boolean success);
+        void onComplete(boolean success, DetectorActivity context);
     }
 
     @Override
@@ -470,16 +470,14 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
             if (!isTraining) {
                 if (confidence > 0.50f) {
                     if (onComplete != null) {
-                        onComplete.onComplete(true);
+                        onComplete.onComplete(true, this);
                     }
-                    finish();
                 } else {
                     TRIES -= 1;
                     if (TRIES == 0) {
                         if (onComplete != null) {
-                            onComplete.onComplete(false);
+                            onComplete.onComplete(false, this);
                         }
-                        finish();
                     }
                 }
             }

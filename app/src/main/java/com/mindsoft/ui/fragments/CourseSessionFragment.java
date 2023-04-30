@@ -90,6 +90,10 @@ public class CourseSessionFragment extends Fragment {
     private StudentAttendanceAdapter adapter;
     private User instructor;
 
+    private DatabaseReference currentUserLocation;
+    private DatabaseReference instructorUserLocation;
+    private ValueEventListener currentLocationListener;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -117,173 +121,165 @@ public class CourseSessionFragment extends Fragment {
 
         db = FirebaseFirestore.getInstance();
 
-        db.collection(Course.COLLECTION).document(courseId)
-                .get()
-                .addOnSuccessListener(command -> {
-                    course = command.toObject(Course.class);
-                    db.collection(CourseSession.COLLECTION).document(sessionId)
-                            .get()
-                            .addOnSuccessListener(task -> {
-                                session = task.toObject(CourseSession.class);
-                                assert session != null;
+        db.collection(Course.COLLECTION).document(courseId).get().addOnSuccessListener(command -> {
+            course = command.toObject(Course.class);
+            db.collection(CourseSession.COLLECTION).document(sessionId).get().addOnSuccessListener(task -> {
+                session = task.toObject(CourseSession.class);
+                assert session != null;
 
-                                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
 
-                                assert course != null;
-                                CourseRepository.getInstance()
-                                        .getEnrolledUsers(course)
-                                        .observe(requireActivity(), students -> {
-                                            database.getReference("course_attendance").child(sessionId).addValueEventListener(new ValueEventListener() {
-                                                @Override
-                                                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                                    if (snapshot.exists()) {
-                                                        attendance = snapshot.getValue(CourseAttendance.class);
-                                                        assert attendance != null;
-                                                    } else {
-                                                        attendance = new CourseAttendance();
-                                                        attendance.setCourseId(courseId);
-                                                        attendance.setSessionId(sessionId);
-                                                        attendance.setTaking(false);
-                                                        students.forEach(user -> {
-                                                            attendance.getAttended().put(user.getId(), false);
-                                                        });
-                                                        database.getReference("course_attendance").child(sessionId).setValue(attendance);
-                                                    }
-                                                    DatabaseReference loc = database.getReference("user_location").child(User.current.getId());
-                                                    ValueEventListener locationListener = new ValueEventListener() {
-                                                        @Override
-                                                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                                            if (snapshot.exists()) {
-                                                                loc.removeValue();
-                                                            }
-                                                            User.current.fetchLocation(requireActivity());
-                                                        }
+                assert course != null;
+                CourseRepository.getInstance().getEnrolledUsers(course).observe(requireActivity(), students -> {
+                    database.getReference("course_attendance").child(sessionId).addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            if (snapshot.exists()) {
+                                attendance = snapshot.getValue(CourseAttendance.class);
+                                assert attendance != null;
+                            } else {
+                                attendance = new CourseAttendance();
+                                attendance.setCourseId(courseId);
+                                attendance.setSessionId(sessionId);
+                                attendance.setTaking(false);
+                                students.forEach(user -> {
+                                    attendance.getAttended().put(user.getId(), false);
+                                });
+                                database.getReference("course_attendance").child(sessionId).setValue(attendance);
+                            }
+                            currentUserLocation = database.getReference("user_location").child(User.current.getId());
+                            currentLocationListener = new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    if (snapshot.exists()) {
+                                        currentUserLocation.removeValue();
+                                    }
+                                    User.current.fetchLocation(requireActivity());
+                                }
 
-                                                        @Override
-                                                        public void onCancelled(@NonNull DatabaseError error) {
-                                                        }
-                                                    };
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
+                                }
+                            };
 
-                                                    if (attendance.getAttended().containsKey(User.current.getId()) && attendance.getAttended().get(User.current.getId())) {
-                                                        isAlreadyAttended = true;
-                                                        binding.attend.setVisibility(View.GONE);
-                                                    }
+                            if (attendance.getAttended().containsKey(User.current.getId()) && attendance.getAttended().get(User.current.getId())) {
+                                isAlreadyAttended = true;
+                                binding.attend.setVisibility(View.GONE);
+                            }
 
-                                                    if (isAlreadyAttended) {
-                                                        loc.removeEventListener(locationListener);
-                                                    }
+                            if (isAlreadyAttended) {
+                                currentUserLocation.removeEventListener(currentLocationListener);
+                            }
 
-                                                    isTakingAttendance = attendance.isTaking();
-                                                    if (User.current.hasRole(Role.STUDENT)) {
-                                                        binding.attend.setVisibility(View.VISIBLE);
-                                                        binding.attend.setOnClickListener(v -> {
-                                                            binding.attend.setAlpha(0.5f);
-                                                            binding.attend.setEnabled(false);
-                                                            attend(course, session);
-                                                        });
-                                                    }
-                                                    if (isTakingAttendance) {
-                                                        binding.attend.setAlpha(1f);
-                                                        binding.attend.setEnabled(true);
-                                                        loc.addValueEventListener(locationListener);
-                                                    } else {
-                                                        binding.attend.setAlpha(0.5f);
-                                                        binding.attend.setEnabled(false);
-                                                        loc.removeEventListener(locationListener);
-                                                    }
+                            isTakingAttendance = attendance.isTaking();
+                            if (User.current.hasRole(Role.STUDENT)) {
+                                binding.attend.setVisibility(View.VISIBLE);
+                                binding.attend.setOnClickListener(v -> {
+                                    binding.attend.setAlpha(0.5f);
+                                    binding.attend.setEnabled(false);
+                                    attend(course, session);
+                                });
+                            }
+                            if (isTakingAttendance) {
+                                binding.attend.setAlpha(1f);
+                                binding.attend.setEnabled(true);
+                                currentUserLocation.addValueEventListener(currentLocationListener);
+                            } else {
+                                binding.attend.setAlpha(0.5f);
+                                binding.attend.setEnabled(false);
+                                currentUserLocation.removeEventListener(currentLocationListener);
+                            }
 
-                                                    List<StudentAttended> attendance_ = students.stream().map(student -> {
-                                                        StudentAttended studentAttended = new StudentAttended();
-                                                        studentAttended.setId(student.getId());
-                                                        studentAttended.setFullName(student.getFullName());
-                                                        db.collection(Student.COLLECTION).document(student.getId())
-                                                                .get().addOnSuccessListener(documentSnapshot -> {
-                                                                    Student std = documentSnapshot.toObject(Student.class);
-                                                                    if (std != null) {
-                                                                        studentAttended.setSection(std.getSection());
-                                                                    }
-                                                                });
-                                                        if (attendance.getAttended().containsKey(student.getId())) {
-                                                            studentAttended.setAttended(attendance.getAttended().get(student.getId()));
-                                                        }
-                                                        return studentAttended;
-                                                    }).collect(Collectors.toList());
+                            List<StudentAttended> attendance_ = students.stream().map(student -> {
+                                StudentAttended studentAttended = new StudentAttended();
+                                studentAttended.setId(student.getId());
+                                studentAttended.setFullName(student.getFullName());
+                                db.collection(Student.COLLECTION).document(student.getId()).get().addOnSuccessListener(documentSnapshot -> {
+                                    Student std = documentSnapshot.toObject(Student.class);
+                                    if (std != null) {
+                                        studentAttended.setSection(std.getSection());
+                                    }
+                                });
+                                if (attendance.getAttended().containsKey(student.getId())) {
+                                    studentAttended.setAttended(attendance.getAttended().get(student.getId()));
+                                }
+                                return studentAttended;
+                            }).collect(Collectors.toList());
 
 
-                                                    adapter.setStudents(attendance_);
-                                                    adapter.notifyDataSetChanged();
-                                                }
+                            adapter.setStudents(attendance_);
+                            adapter.notifyDataSetChanged();
+                        }
 
-                                                @Override
-                                                public void onCancelled(@NonNull DatabaseError error) {
-                                                }
-                                            });
-
-                                        });
-
-                                session.getInstructor().get()
-                                        .addOnSuccessListener(userObj -> {
-                                            instructor = userObj.toObject(User.class);
-                                            binding.courseName.setText(course.getName());
-                                            binding.instructorName.setText("By " + instructor.getFullName());
-                                            binding.sessionTitle.setText(session.getTitle());
-                                            Handler handler = new Handler();
-
-
-                                            Runnable runnable = new Runnable() {
-                                                @Override
-                                                public void run() {
-                                                    Timestamp start = session.getDate();
-                                                    Timestamp now = Timestamp.now();
-                                                    long estimated = now.toDate().getTime() - start.toDate().getTime();
-                                                    int seconds = (int) (estimated / 1000) % 60;
-                                                    int minutes = (int) (estimated / 1000 / 60) % 60;
-                                                    int hours = (int) (estimated / 1000 / 60 / 60) % 24;
-                                                    binding.time.setText(String.format("%02d:%02d:%02d", hours, minutes, seconds));
-                                                    handler.postDelayed(this, 1000);
-                                                }
-                                            };
-
-                                            if (session.getStatusValue() == CourseSession.Status.ONGOING) {
-                                                handler.post(runnable);
-                                            } else {
-                                                binding.time.setText(new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.US).format(session.getDate().toDate()));
-                                            }
-
-                                            if (instructor.getId().equals(User.current.getId())) {
-                                                if (session.getStatusValue() == CourseSession.Status.ONGOING) {
-                                                    binding.close.setVisibility(View.VISIBLE);
-                                                    binding.close.setOnClickListener(v -> {
-                                                        session.setStatus(1);
-                                                        session.getReference().set(session).addOnSuccessListener(unused -> {
-                                                            Bundle bundle = new Bundle();
-                                                            bundle.putString("courseId", courseId);
-                                                            mNavController.navigate(R.id.action_session_to_course, bundle);
-                                                        });
-                                                    });
-
-                                                    binding.takeAttendance.setVisibility(View.VISIBLE);
-                                                    binding.takeAttendance.setOnClickListener(v -> {
-                                                        startAttendance(course, session);
-                                                        binding.takeAttendance.setAlpha(0.5f);
-                                                        binding.takeAttendance.setEnabled(false);
-                                                    });
-                                                } else {
-                                                    binding.export.setVisibility(View.VISIBLE);
-                                                    binding.export.setOnClickListener(v -> {
-                                                        if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                                                            ActivityCompat.requestPermissions(requireActivity(), new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_WRITE_STORAGE);
-                                                        } else {
-                                                            export(course, session);
-                                                        }
-                                                    });
-                                                }
-                                            }
-
-                                        });
-                            });
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+                        }
+                    });
 
                 });
+
+                session.getInstructor().get().addOnSuccessListener(userObj -> {
+                    instructor = userObj.toObject(User.class);
+                    binding.courseName.setText(course.getName());
+                    binding.instructorName.setText("By " + instructor.getFullName());
+                    binding.sessionTitle.setText(session.getTitle());
+                    Handler handler = new Handler();
+
+
+                    Runnable runnable = new Runnable() {
+                        @Override
+                        public void run() {
+                            Timestamp start = session.getDate();
+                            Timestamp now = Timestamp.now();
+                            long estimated = now.toDate().getTime() - start.toDate().getTime();
+                            int seconds = (int) (estimated / 1000) % 60;
+                            int minutes = (int) (estimated / 1000 / 60) % 60;
+                            int hours = (int) (estimated / 1000 / 60 / 60) % 24;
+                            binding.time.setText(String.format("%02d:%02d:%02d", hours, minutes, seconds));
+                            handler.postDelayed(this, 1000);
+                        }
+                    };
+
+                    if (session.getStatusValue() == CourseSession.Status.ONGOING) {
+                        handler.post(runnable);
+                    } else {
+                        binding.time.setText(new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.US).format(session.getDate().toDate()));
+                    }
+
+                    if (instructor.getId().equals(User.current.getId())) {
+                        if (session.getStatusValue() == CourseSession.Status.ONGOING) {
+                            binding.close.setVisibility(View.VISIBLE);
+                            binding.close.setOnClickListener(v -> {
+                                session.setStatus(1);
+                                session.getReference().set(session).addOnSuccessListener(unused -> {
+                                    Bundle bundle = new Bundle();
+                                    bundle.putString("courseId", courseId);
+                                    mNavController.navigate(R.id.action_session_to_course, bundle);
+                                });
+                            });
+
+                            binding.takeAttendance.setVisibility(View.VISIBLE);
+                            binding.takeAttendance.setOnClickListener(v -> {
+                                startAttendance(course, session);
+                                binding.takeAttendance.setAlpha(0.5f);
+                                binding.takeAttendance.setEnabled(false);
+                            });
+                        } else {
+                            binding.export.setVisibility(View.VISIBLE);
+                            binding.export.setOnClickListener(v -> {
+                                if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                                    ActivityCompat.requestPermissions(requireActivity(), new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_WRITE_STORAGE);
+                                } else {
+                                    export(course, session);
+                                }
+                            });
+                        }
+                    }
+
+                });
+            });
+
+        });
 
         return binding.getRoot();
     }
@@ -437,16 +433,20 @@ public class CourseSessionFragment extends Fragment {
                         Intent intent = new Intent(requireActivity(), DetectorActivity.class);
                         intent.putExtra("train_mode", false);
                         intent.putExtra("title", "Scan your face to take attendance");
-                        DetectorActivity.onComplete = success -> {
-                            database.getReference("course_attendance").child(attendance.getSessionId()).get().addOnSuccessListener(dataSnapshot -> {
-                                if (dataSnapshot.exists()) {
-                                    CourseAttendance attendance = dataSnapshot.getValue(CourseAttendance.class);
-                                    assert attendance != null;
-                                    attendance.getAttended().put(User.current.getId(), true);
-                                    database.getReference("course_attendance").child(attendance.getSessionId()).setValue(attendance);
-                                    binding.attend.setVisibility(View.GONE);
-                                }
-                            });
+                        DetectorActivity.onComplete = (success, context) -> {
+                            System.out.println(".. " + success);
+                            if (success) {
+                                database.getReference("course_attendance").child(attendance.getSessionId()).get().addOnSuccessListener(dataSnapshot -> {
+                                    if (dataSnapshot.exists()) {
+                                        CourseAttendance attendance = dataSnapshot.getValue(CourseAttendance.class);
+                                        assert attendance != null;
+                                        attendance.getAttended().put(User.current.getId(), true);
+                                        database.getReference("course_attendance").child(attendance.getSessionId()).setValue(attendance);
+                                        binding.attend.setVisibility(View.GONE);
+                                    }
+                                });
+                                context.finish();
+                            }
                         };
                         startActivity(intent);
                     }
@@ -457,6 +457,14 @@ public class CourseSessionFragment extends Fragment {
                 Toast.makeText(requireActivity(), "Cannot determine instructor's location.", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        if (currentUserLocation != null && currentLocationListener != null) {
+            currentUserLocation.removeEventListener(currentLocationListener);
+        }
     }
 
     @Override
@@ -482,12 +490,12 @@ public class CourseSessionFragment extends Fragment {
         database.getReference("course_attendance").child(session.getId()).setValue(attendance);
         binding.timer.setVisibility(View.VISIBLE);
 
-        DatabaseReference loc = database.getReference("user_location").child(User.current.getId());
-        ValueEventListener locationListener = new ValueEventListener() {
+        currentUserLocation = database.getReference("user_location").child(User.current.getId());
+        currentLocationListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
-                    loc.removeValue();
+                    currentUserLocation.removeValue();
                 }
                 User.current.fetchLocation(requireActivity());
             }
@@ -496,7 +504,7 @@ public class CourseSessionFragment extends Fragment {
             public void onCancelled(@NonNull DatabaseError error) {
             }
         };
-        loc.addValueEventListener(locationListener);
+        currentUserLocation.addValueEventListener(currentLocationListener);
 
         CountDownTimer timer = new CountDownTimer(1000 * 60 * ATTENDANCE_TIMER, 1000) {
             @Override
@@ -513,7 +521,7 @@ public class CourseSessionFragment extends Fragment {
                 binding.takeAttendance.setEnabled(true);
                 attendance.setTaking(false);
                 database.getReference("course_attendance").child(session.getId()).setValue(attendance);
-                loc.removeEventListener(locationListener);
+                currentUserLocation.removeEventListener(currentLocationListener);
             }
         };
 

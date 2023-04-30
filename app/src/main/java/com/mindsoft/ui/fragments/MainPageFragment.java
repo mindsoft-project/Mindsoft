@@ -125,6 +125,10 @@ public class MainPageFragment extends Fragment {
                         return;
                     }
 
+                    if (User.current.hasRole(Role.ADMIN)) {
+                        activity.mNavigationView.getMenu().findItem(R.id.users).setVisible(true);
+                    }
+
                     if (!User.current.isValidated()) {
                         navController.navigate(R.id.action_main_page_to_validation_required);
                         return;
