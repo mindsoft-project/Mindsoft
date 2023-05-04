@@ -2,8 +2,8 @@
     <!-- Base application theme. -->
     <style name="Theme.Mindsoft" parent="Theme.MaterialComponents.DayNight.NoActionBar">
 
-        <item name="colorPrimary">@color/primary</item>
-        <item name="colorPrimaryVariant">@color/primary</item>
+        <item name="colorPrimary">@color/Gold</item>
+        <item name="colorPrimaryVariant">@color/Goldenrod</item>
         <item name="colorOnPrimary">@color/on_light</item>
 
         <item name="colorSecondary">@color/secondary</item>
@@ -17,4 +17,14 @@
 
         <item name="android:windowBackground">@color/bg_light</item>
     </style>
+    <color name="baseBackground">@color/Snow</color>
+    <color name="darkBackground">#06091E</color>
+    <color name="lightBackground">@color/Snow</color>
+
+    <color name="textBackground">#1C1C1C</color>
+    <color name="buttonBackground">@color/Gold</color>
+    <color name="logoColor">@color/Gold</color>
+    <color name="textGold">@color/Gold</color>
+
+
 </resources>

@@ -5,7 +5,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="20dp">
+        android:padding="20dp"
+        android:background="@color/baseBackground">
 
 
         <TextView
@@ -13,20 +14,23 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/almarai_extra_bold"
             android:text="Find my student code"
-            android:textSize="25sp" />
+            android:textSize="25sp"
+            android:textColor="@color/textBackground"/>
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:layout_marginBottom="20dp"
-            android:src="@drawable/label_shape" />
+            android:src="@drawable/label_shape"
+            android:tint="@color/textGold"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/almarai_bold"
             android:text="National ID"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textColor="@color/textBackground"/>
 
         <EditText
             android:id="@+id/national_id"
@@ -34,23 +38,25 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
             android:autofilledHighlight="@null"
-            android:background="@drawable/input_shape"
             android:digits="0123456789"
             android:fontFamily="@font/font_almarai_light"
             android:hint="30001018800019"
             android:inputType="number"
             android:padding="10dp"
-            android:textSize="15sp" />
+            android:textColor="@color/textBackground"
+            android:textSize="15sp"
+            android:background="@drawable/custom_edit_text_cut_2"/>
 
         <Button
             android:id="@+id/find"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:backgroundTint="@color/primary"
+android:background="@drawable/rec_btn"
             android:fontFamily="@font/font_almarai_regular"
             android:stateListAnimator="@null"
             android:text="Find"
+            android:textStyle="bold"
             android:textColor="@color/on_dark" />
 
         <FrameLayout

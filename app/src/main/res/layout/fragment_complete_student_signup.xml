@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/baseBackground"
     tools:context=".ui.fragments.CompleteStudentSignupFragment">
 
     <LinearLayout
@@ -11,6 +12,7 @@
         android:orientation="vertical">
 
         <TextView
+            android:textColor="@color/textBackground"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/font_almarai_light"
@@ -18,12 +20,13 @@
             android:textSize="18sp" />
 
         <EditText
+            android:textColor="@color/textBackground"
             android:id="@+id/student_code"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
             android:autofilledHighlight="@null"
-            android:background="@drawable/input_shape"
+            android:background="@drawable/custom_edit_text_cut_2"
             android:digits="0123456789"
             android:fontFamily="@font/font_almarai_light"
             android:hint="20200200"
@@ -50,15 +53,17 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/font_almarai_light"
                     android:text="Semester"
+                    android:textColor="@color/textBackground"
                     android:textSize="18sp" />
 
                 <EditText
+                    android:textColor="@color/textBackground"
                     android:id="@+id/semester"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="15dp"
                     android:autofilledHighlight="@null"
-                    android:background="@drawable/input_shape"
+                    android:background="@drawable/custom_edit_text_cut_2"
                     android:digits="0123456789"
                     android:fontFamily="@font/font_almarai_light"
                     android:inputType="number"
@@ -78,15 +83,17 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/font_almarai_light"
                     android:text="Section"
+                    android:textColor="@color/textBackground"
                     android:textSize="18sp" />
 
                 <EditText
+                    android:textColor="@color/textBackground"
                     android:id="@+id/section"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="15dp"
                     android:autofilledHighlight="@null"
-                    android:background="@drawable/input_shape"
+                    android:background="@drawable/custom_edit_text_cut_2"
                     android:digits="0123456789"
                     android:fontFamily="@font/font_almarai_light"
                     android:inputType="number"
@@ -108,6 +115,7 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/font_almarai_light"
                 android:text="Program"
+                android:textColor="@color/textBackground"
                 android:textSize="18sp" />
 
             <Spinner
@@ -122,7 +130,8 @@
             android:id="@+id/next"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/secondary"
+            android:background="@drawable/rec_btn"
+            android:textStyle="bold"
             android:fontFamily="@font/font_almarai_regular"
             android:stateListAnimator="@null"
             android:text="Next"

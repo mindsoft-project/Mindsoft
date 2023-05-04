@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/baseBackground">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:gravity="bottom"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="16dp"
+        android:background="@color/baseBackground">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/profilePhoto"
@@ -28,7 +30,7 @@
             android:fontFamily="@font/almarai_bold"
             android:gravity="center"
             android:text="Display Name"
-            android:textColor="@color/primary"
+            android:textColor="@color/textGold"
             android:textSize="16sp" />
 
         <TextView
@@ -39,12 +41,14 @@
             android:fontFamily="@font/almarai_light"
             android:gravity="center"
             android:text="Title"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:textStyle="bold"/>
 
         <ImageView
 
             android:layout_width="match_parent"
             android:layout_height="3dp"
-            android:src="@drawable/label_shape" />
+            android:src="@drawable/label_shape"
+            android:tint="@color/textGold"/>
     </LinearLayout>
 </layout>

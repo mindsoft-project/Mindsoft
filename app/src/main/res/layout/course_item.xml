@@ -15,7 +15,7 @@
             android:id="@+id/banner_color"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#3296E3"
+            android:background="@color/Gold"
             android:contentDescription="@null"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -104,6 +104,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/almarai_regular"
             android:text="Test"
+            android:textColor="@color/textBackground"
             android:textSize="14sp" />
 
 

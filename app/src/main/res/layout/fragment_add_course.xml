@@ -4,7 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="20dp">
+    android:padding="20dp"
+    android:background="@color/baseBackground"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,13 +19,15 @@
             android:layout_weight="1"
             android:fontFamily="@font/almarai_extra_bold"
             android:text="Add Course"
-            android:textSize="25sp" />
+            android:textColor="@color/textBackground"
+            android:textSize="30sp" />
     </LinearLayout>
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:layout_marginBottom="20dp"
+        android:tint="@color/Gold"
         android:src="@drawable/label_shape" />
 
     <TextView
@@ -31,15 +35,17 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/almarai_bold"
         android:text="Name"
+        android:textColor="@color/textBackground"
         android:textSize="18sp" />
 
     <EditText
+        android:textColor="@color/textBackground"
         android:id="@+id/course_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="15dp"
         android:autofilledHighlight="@null"
-        android:background="@drawable/input_shape"
+        android:background="@drawable/custom_edit_text_cut_2"
         android:fontFamily="@font/font_almarai_light"
         android:hint="Java fundamentals"
         android:inputType="text"
@@ -51,6 +57,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/almarai_bold"
         android:text="Description"
+        android:textColor="@color/textBackground"
         android:textSize="18sp" />
 
     <EditText
@@ -59,9 +66,10 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="15dp"
         android:autofilledHighlight="@null"
-        android:background="@drawable/input_shape"
+        android:background="@drawable/custom_edit_text_cut_2"
         android:fontFamily="@font/font_almarai_light"
         android:gravity="top|start"
+        android:textColor="@color/textBackground"
         android:hint="Programming basics with Java"
         android:inputType="textMultiLine"
         android:lines="5"
@@ -74,6 +82,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/almarai_bold"
         android:text="Departments"
+        android:textColor="@color/textBackground"
         android:textSize="18sp" />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -87,7 +96,8 @@
         android:id="@+id/add"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/primary"
+android:background="@drawable/rec_btn"
+        android:textStyle="bold"
         android:fontFamily="@font/font_almarai_regular"
         android:stateListAnimator="@null"
         android:text="Add"

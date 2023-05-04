@@ -2,24 +2,28 @@
 <androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp">
+    android:padding="20dp"
+    android:background="@color/baseBackground">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@color/baseBackground">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/almarai_extra_bold"
             android:text="Validation Pending"
-            android:textSize="25sp" />
+            android:textSize="25sp"
+            android:textColor="@color/textBackground"/>
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:layout_marginBottom="20dp"
-            android:src="@drawable/label_shape" />
+            android:src="@drawable/label_shape"
+            android:tint="@color/textGold"/>
 
 
         <TextView
@@ -27,6 +31,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/almarai_light"
             android:text="Your registration request has been sent to the Administrators, and waiting to approve your request.\n\nThis should not take more than 3 days, if you didn't get response after 3 days please contact an Administrator at your University."
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:textColor="@color/textBackground"/>
     </LinearLayout>
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

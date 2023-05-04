@@ -3,17 +3,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="20dp">
+    android:padding="20dp"
+    android:background="@color/baseBackground">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/almarai_extra_bold"
         android:text="Courses"
-        android:textSize="25sp" />
+        android:textSize="25sp"
+        android:textColor="@color/textBackground"/>
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:src="@drawable/label_shape" />
+        android:src="@drawable/label_shape"
+        android:tint="@color/Gold"/>
 </LinearLayout>

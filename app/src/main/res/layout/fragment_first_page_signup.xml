@@ -3,9 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragments.FirstPageSignup">
+    tools:context=".ui.fragments.FirstPageSignup"
+    android:background="@color/baseBackground">
 
     <LinearLayout
+        android:background="@color/baseBackground"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -19,14 +21,17 @@
 
         <EditText
             android:id="@+id/email"
+            android:textColor="@color/textBackground"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
             android:autofilledHighlight="@null"
-            android:background="@drawable/input_shape"
+            android:background="@drawable/custom_edit_text_cut_2"
             android:fontFamily="@font/font_almarai_light"
             android:hint="name@nctu.edu.eg"
+
             android:inputType="textEmailAddress"
+            android:minHeight="48dp"
             android:padding="10dp"
             android:textSize="15sp" />
 
@@ -54,13 +59,17 @@
                     android:id="@+id/first_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/textBackground"
+
                     android:layout_marginBottom="15dp"
-                    android:background="@drawable/input_shape"
+                    android:background="@drawable/custom_edit_text_cut_2"
                     android:fontFamily="@font/font_almarai_light"
                     android:inputType="text"
+                    android:minHeight="48dp"
                     android:padding="10dp"
                     android:singleLine="true"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"
+                    tools:ignore="SpeakableTextPresentCheck" />
             </LinearLayout>
 
             <LinearLayout
@@ -80,13 +89,17 @@
                     android:id="@+id/last_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/textBackground"
+
                     android:layout_marginBottom="15dp"
-                    android:background="@drawable/input_shape"
+                    android:background="@drawable/custom_edit_text_cut_2"
                     android:fontFamily="@font/font_almarai_light"
                     android:inputType="text"
+                    android:minHeight="48dp"
                     android:padding="10dp"
                     android:singleLine="true"
-                    android:textSize="15sp" />
+                    android:textSize="15sp"
+                    tools:ignore="SpeakableTextPresentCheck" />
             </LinearLayout>
 
         </LinearLayout>
@@ -103,13 +116,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
-            android:background="@drawable/input_shape"
+            android:textColor="@color/textBackground"
+
+            android:background="@drawable/custom_edit_text_cut_2"
             android:digits="0123456789"
             android:fontFamily="@font/font_almarai_light"
             android:inputType="text"
             android:maxLength="14"
+            android:minHeight="48dp"
             android:padding="10dp"
-            android:textSize="15sp" />
+            android:textSize="15sp"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <TextView
             android:layout_width="match_parent"
@@ -123,11 +140,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
-            android:background="@drawable/input_shape"
+            android:textColor="@color/textBackground"
+
+            android:background="@drawable/custom_edit_text_cut_2"
             android:fontFamily="@font/font_almarai_light"
             android:inputType="textPassword"
+            android:minHeight="48dp"
             android:padding="10dp"
-            android:textSize="15sp" />
+            android:textSize="15sp"
+            tools:ignore="SpeakableTextPresentCheck" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -148,7 +169,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:spinnerMode="dropdown" />
+                android:spinnerMode="dropdown"
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
         </LinearLayout>
 
         <Button

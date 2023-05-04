@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="20dp">
+    android:padding="20dp"
+    android:background="@color/baseBackground">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,21 +19,23 @@
             android:layout_weight="1"
             android:fontFamily="@font/almarai_extra_bold"
             android:text="Enrolled Courses"
-            android:textSize="25sp" />
+            android:textSize="25sp"
+            android:textColor="@color/textBackground"/>
 
         <ImageView
             android:id="@+id/add"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:src="@drawable/ic_baseline_add_box"
-            app:tint="@color/primary" />
+            app:tint="@color/Gold" />
     </LinearLayout>
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:layout_marginBottom="20dp"
-        android:src="@drawable/label_shape" />
+        android:src="@drawable/label_shape"
+        android:tint="@color/textGold"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"

@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activity.SplashscreenActivity">
+    tools:context=".ui.activity.SplashscreenActivity"
+    android:background="@color/baseBackground">
 
     <View
         android:id="@+id/view"
@@ -15,7 +16,8 @@
         android:translationX="-70dp"
         android:translationY="-70dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:backgroundTint="@color/Gold"/>
 
     <View
         android:layout_width="60dp"
@@ -24,7 +26,8 @@
         android:translationX="-50dp"
         android:translationY="-70dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:backgroundTint="@color/Goldenrod"/>
 
     <View
         android:layout_width="140dp"
@@ -33,7 +36,9 @@
         android:translationX="40dp"
         android:translationY="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:backgroundTint="@color/Gold"
+        />
 
     <ImageView
         android:id="@+id/logo"
@@ -46,15 +51,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.367"
-        app:tint="@color/primary" />
+        app:tint="@color/logoColor" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
         android:gravity="center"
+        android:textColor="@color/textBackground"
         android:text="Powered by \nNew Cairo Technological University"
         android:textSize="15sp"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"

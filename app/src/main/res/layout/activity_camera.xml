@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/baseBackground">
 
 
     <TextView
@@ -21,6 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <RelativeLayout
+
         android:id="@+id/relativeLayout"
         android:layout_width="350dp"
         android:layout_height="400dp"
@@ -41,7 +43,8 @@
             android:layout_gravity="start|top"
             android:layout_margin="16dp"
             android:src="@drawable/ic_switch_camera"
-            android:tint="@color/white" />
+            android:tint="@color/white"
+            android:backgroundTint="@color/Gold"/>
 
 
         <FrameLayout
@@ -67,6 +70,7 @@
     </RelativeLayout>
 
     <LinearLayout
+        android:background="@color/baseBackground"
         android:id="@+id/details"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -88,6 +92,7 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/almarai_extra_bold"
                 android:text="Full name"
+                android:textColor="@color/textBackground"
                 android:textAllCaps="true" />
 
             <TextView
@@ -110,6 +115,8 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/almarai_extra_bold"
                 android:text="DEPARTMENT"
+                android:textColor="@color/textBackground"
+
                 android:textAllCaps="true" />
 
             <TextView
@@ -133,6 +140,8 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/almarai_extra_bold"
                 android:text="YEAR / SEMESTER"
+                android:textColor="@color/textBackground"
+
                 android:textAllCaps="true" />
 
             <TextView
@@ -153,8 +162,8 @@
             android:layout_marginTop="10dp"
             android:indeterminate="false"
             android:progress="0"
-            android:progressBackgroundTint="#8DA6BA"
-            android:progressTint="@color/primary" />
+            android:progressBackgroundTint="@color/Goldenrod"
+            android:progressTint="@color/Gold" />
 
         <Button
             android:id="@+id/continueProcess"
