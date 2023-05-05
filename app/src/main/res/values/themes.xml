@@ -21,9 +21,11 @@
     <color name="darkBackground">#06091E</color>
     <color name="lightBackground">@color/Snow</color>
 
-    <color name="textBackground">#1C1C1C</color>
+    <color name="textBackground">#2C2C2C</color>
     <color name="buttonBackground">@color/Gold</color>
     <color name="logoColor">@color/Gold</color>
+    <color name="logoInversColor">@color/Snow</color>
+
     <color name="textGold">@color/Gold</color>
 
 

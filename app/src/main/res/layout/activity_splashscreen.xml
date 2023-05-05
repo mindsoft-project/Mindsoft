@@ -8,7 +8,7 @@
     android:background="@color/baseBackground">
 
     <View
-        android:id="@+id/view"
+        android:id="@+id/view1"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:background="@drawable/shape_1"
@@ -20,6 +20,7 @@
         android:backgroundTint="@color/Gold"/>
 
     <View
+        android:id="@+id/viwe2"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:background="@drawable/shape_1"
@@ -30,6 +31,7 @@
         android:backgroundTint="@color/Goldenrod"/>
 
     <View
+        android:id="@+id/viwe3"
         android:layout_width="140dp"
         android:layout_height="140dp"
         android:background="@drawable/shape_2"
@@ -41,10 +43,10 @@
         />
 
     <ImageView
+
         android:id="@+id/logo"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:contentDescription="@strings/app_name"
         android:src="@drawable/ic_logo_square"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -24,5 +24,6 @@
     <color name="buttonBackground">@color/Gold</color>
     <color name="logoColor">@color/white</color>
     <color name="textGold">@color/white</color>
+    <color name="logoInversColor">#06091E</color>
 
 </resources>
