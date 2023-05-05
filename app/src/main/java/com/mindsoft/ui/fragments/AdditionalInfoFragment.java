@@ -32,6 +32,7 @@ public class AdditionalInfoFragment extends Fragment {
                 binding.sectionLayout.setVisibility(View.VISIBLE);
             }
         }
+
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         binding.submit.setOnClickListener(v -> {

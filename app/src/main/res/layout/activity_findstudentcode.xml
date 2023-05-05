@@ -59,6 +59,12 @@ android:background="@drawable/rec_btn"
             android:textStyle="bold"
             android:textColor="@color/on_dark" />
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:src="@drawable/card"
+            android:tint="@color/Gold"></ImageView>
+
         <FrameLayout
             android:id="@+id/result_failed"
             android:layout_width="match_parent"
