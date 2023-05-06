@@ -138,23 +138,24 @@
                 android:textColor="@color/textBackground"
                 android:textSize="18sp"
                 android:textStyle="bold" />
+
     <TextView
         android:id="@+id/showPass"
         android:layout_width="wrap_content"
         android:layout_height="25dp"
+        android:layout_marginStart="130dp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="5dp"
-        android:padding="1dp"
-android:background="@drawable/rec_btn"
+        android:background="@drawable/rec_btn"
         android:backgroundTint="@color/Gold"
+        android:drawableRight="@drawable/ic_baseline_remove_red_eye_24"
         android:fontFamily="@font/font_almarai_light"
+        android:padding="1dp"
         android:text="   Show Password__ "
         android:textColor="@color/logoInversColor"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:layout_marginStart="100dp"
-        android:drawableRight="@drawable/ic_baseline_remove_red_eye_24"/>
-        </LinearLayout>
+        android:textSize="15sp"
+        android:textStyle="bold" />
+</LinearLayout>
 
             <EditText
                 android:id="@+id/password"

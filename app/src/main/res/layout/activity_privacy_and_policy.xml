@@ -20,8 +20,8 @@
 
         <TextView
             android:id="@+id/textView2"
-            android:layout_width="353dp"
-            android:layout_height="269dp"
+            android:layout_width="367dp"
+            android:layout_height="232dp"
             android:fontFamily="serif"
             android:text="
 We protect your privacy We want you to know what information we collect and how we use it and share it with authorized people.\n\n We therefore encourage you to read the Privacy Policy. \n\nThis helps you to use our services better we hope that we can help as much as possible and improve the way we handle the environment well."

@@ -13,9 +13,9 @@
         android:src="@drawable/ic_logo"
         app:layout_constraintBottom_toTopOf="@+id/registerForm"
         app:layout_constraintEnd_toEndOf="parent"
-        android:tint="@color/Gold"
 
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:tint="@color/Gold" />
 
     <LinearLayout
         android:id="@+id/registerForm"
