@@ -3,6 +3,8 @@ package com.mindsoft.ui.fragments;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,7 +47,21 @@ public class FirstPageSignup extends Fragment {
 
         Spinner userType = binding.userType;
 
+        binding.showPass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (binding.password.getTransformationMethod() == PasswordTransformationMethod.getInstance()) {
+                    // Show the password
+                    binding.showPass.setText("   Hide Password___ ");
+                    binding.password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());}
+                else {
+                    binding.showPass.setText("   Show Password__ ");
 
+                    // Hide the password
+                    binding.password.setTransformationMethod(PasswordTransformationMethod.getInstance());}
+                binding.password.setSelection(binding.password.getText().length());
+            }
+        });
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this.getContext(), R.array.user_type, android.R.layout.simple_spinner_dropdown_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 

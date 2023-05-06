@@ -16,6 +16,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.mindsoft.R;
 import com.mindsoft.data.repoistory.SystemRepository;
 import com.mindsoft.databinding.ActivitySplashscreenBinding;
+import com.mindsoft.ui.introActivities.Intro.WelcomeActivity;
 
 import java.util.concurrent.TimeUnit;
 
@@ -68,7 +69,7 @@ public class SplashscreenActivity extends AppCompatActivity {
                 home.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(home);
             } else {
-                Intent main = new Intent(this, LoginActivity.class);
+                Intent main = new Intent(this, WelcomeActivity.class);
                 main.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(main);
             }
