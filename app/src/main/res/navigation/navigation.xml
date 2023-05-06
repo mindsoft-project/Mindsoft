@@ -24,7 +24,27 @@
         <action
             android:id="@+id/action_main_page_to_additional_info"
             app:destination="@id/additional_info" />
+
     </fragment>
+
+    <action
+        android:id="@+id/action_to_pending_requests"
+        app:destination="@id/pending_requests" />
+
+    <action
+        android:id="@+id/action_to_student_home"
+        app:destination="@id/student_home" />
+    <action
+        android:id="@+id/action_to_professor_home"
+        app:destination="@id/professor_home" />
+    <action
+        android:id="@+id/action_to_assistant_home"
+        app:destination="@id/assistant_home" />
+
+    <fragment
+        android:id="@+id/pending_requests"
+        android:name="com.mindsoft.ui.fragments.PendingRequestsFragment"
+        android:label="Pending Requests" />
 
     <fragment
         android:id="@+id/professor_home"

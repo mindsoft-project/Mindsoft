@@ -3,6 +3,7 @@ package com.mindsoft.ui.fragments;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -32,6 +33,7 @@ public class MainPageFragment extends Fragment {
     private FragmentMainPageBinding binding;
     private FirebaseAuth mAuth;
     private FirebaseUser mUser;
+    private NavController navController;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -47,7 +49,7 @@ public class MainPageFragment extends Fragment {
         mUser = mAuth.getCurrentUser();
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        NavController navController = NavHostFragment.findNavController(this);
+        navController = NavHostFragment.findNavController(this);
         HomeActivity activity = (HomeActivity) getActivity();
 
         assert activity != null;
@@ -121,12 +123,10 @@ public class MainPageFragment extends Fragment {
                                         startActivity(intent);
                                     }
                                 });
-
-                        return;
                     }
 
                     if (User.current.hasRole(Role.ADMIN)) {
-                        activity.mNavigationView.getMenu().findItem(R.id.users).setVisible(true);
+                        activity.mNavigationView.getMenu().findItem(R.id.pending_requests).setVisible(true);
                     }
 
                     if (!User.current.isValidated()) {
@@ -149,6 +149,9 @@ public class MainPageFragment extends Fragment {
                 }
             });
         }
+
         return binding.getRoot();
     }
+
+
 }

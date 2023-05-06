@@ -3,6 +3,7 @@ package com.mindsoft.ui.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
@@ -15,6 +16,8 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.mindsoft.R;
+import com.mindsoft.data.model.Role;
+import com.mindsoft.data.model.User;
 import com.mindsoft.databinding.ActivityHomeBinding;
 
 public class HomeActivity extends AppCompatActivity {
@@ -24,6 +27,7 @@ public class HomeActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private FirebaseUser mUser;
+    private NavController navController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +41,8 @@ public class HomeActivity extends AppCompatActivity {
 
 
         assert navHostFragment != null;
-        
-        NavController navController = navHostFragment.getNavController();
+
+        navController = navHostFragment.getNavController();
         NavigationUI.setupWithNavController(binding.navView, navController);
 
         mAuth = FirebaseAuth.getInstance();
@@ -46,15 +50,7 @@ public class HomeActivity extends AppCompatActivity {
 
         mNavigationView = binding.navView;
 
-        mNavigationView.setNavigationItemSelectedListener(item -> {
-            if (item.getItemId() == R.id.signout) {
-                mAuth.signOut();
-                Intent intent = new Intent(this, LoginActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(intent);
-            }
-            return false;
-        });
+        mNavigationView.setNavigationItemSelectedListener(this::onNavigationItemSelected);
 
         View head = mNavigationView.getHeaderView(0);
 
@@ -68,6 +64,29 @@ public class HomeActivity extends AppCompatActivity {
         } else {
             displayName.setText(mUser.getDisplayName());
         }
+    }
+
+
+    private boolean onNavigationItemSelected(MenuItem menuItem) {
+        if (menuItem.getItemId() == R.id.home) {
+            if (User.current.hasRole(Role.STUDENT)) {
+                navController.navigate(R.id.action_to_student_home);
+            } else if (User.current.hasRole(Role.PROFESSOR)) {
+                navController.navigate(R.id.action_to_professor_home);
+            } else if (User.current.hasRole(Role.TEACHING_ASSISTANT)) {
+                navController.navigate(R.id.action_to_assistant_home);
+            }
+            return true;
+        } else if (menuItem.getItemId() == R.id.pending_requests && User.current.hasRole(Role.ADMIN)) {
+            navController.navigate(R.id.action_to_pending_requests);
+            return true;
+        } else if (menuItem.getItemId() == R.id.signout) {
+            mAuth.signOut();
+            Intent intent = new Intent(this, LoginActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+        }
+        return false;
     }
 
     @Override
