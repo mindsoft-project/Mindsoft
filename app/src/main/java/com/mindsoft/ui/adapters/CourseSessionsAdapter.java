@@ -32,6 +32,7 @@ public class CourseSessionsAdapter extends RecyclerView.Adapter<CourseSessionsAd
 
     public void setSessionList(List<CourseSession> sessionList) {
         this.sessionList = sessionList;
+        notifyDataSetChanged();
     }
 
     @NonNull

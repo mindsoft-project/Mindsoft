@@ -7,6 +7,12 @@
         android:title="Profile" />
 
     <item
+        android:id="@+id/attend"
+        android:icon="@drawable/ic_check"
+        android:title="Attend"
+        android:visible="false" />
+
+    <item
         android:id="@+id/accept"
         android:icon="@drawable/ic_check"
         android:title="Accept"

@@ -95,15 +95,15 @@ public class CoursePageFragment extends Fragment {
 
                     if (course == null) return;
 
+                    CourseRepository.getInstance().getSessions(course)
+                            .observe(requireActivity(), adapter::setSessionList);
+
                     binding.refresh.setOnRefreshListener(() -> {
                         CourseRepository.getInstance().getSessions(course)
                                 .observe(requireActivity(), adapter::setSessionList);
-                        adapter.notifyDataSetChanged();
+                        binding.refresh.setRefreshing(false);
                     });
 
-                    CourseRepository.getInstance().getSessions(course)
-                            .observe(requireActivity(), adapter::setSessionList);
-                    adapter.notifyDataSetChanged();
 
                     binding.menu.setOnClickListener(v -> {
                         menu.show();

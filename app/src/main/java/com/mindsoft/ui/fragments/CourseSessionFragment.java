@@ -9,6 +9,8 @@ import android.os.CountDownTimer;
 import android.os.Environment;
 import android.os.Handler;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
@@ -113,7 +115,35 @@ public class CourseSessionFragment extends Fragment {
         RecyclerView recyclerView = binding.recyclerView;
         recyclerView.setLayoutManager(new LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false));
 
-        adapter = new StudentAttendanceAdapter(new ArrayList<>());
+        adapter = new StudentAttendanceAdapter(new ArrayList<>(), new StudentAttendanceAdapter.OnUserClickListener() {
+            @Override
+            public boolean onUserClickListener(StudentAttended user, int position, MenuItem item) {
+                if (item.getItemId() == R.id.attend) {
+                    attendUser(user, position);
+                    return true;
+                } else if (item.getItemId() == R.id.profile) {
+                    return true;
+                }
+                return false;
+            }
+
+            @Override
+            public void onMenuInitialize(StudentAttended user, Menu menu) {
+                if (user.getId().equals(User.current.getId())) {
+                    menu.findItem(R.id.profile).setVisible(false);
+                }
+                if (course != null && session != null) {
+                    if (User.current.hasRole(Role.PROFESSOR) && course.getProfessor().getId().equals(User.current.getId()) || User.current.hasRole(Role.TEACHING_ASSISTANT) && session.getInstructor().getId().equals(User.current.getId())) {
+                        menu.findItem(R.id.attend).setVisible(true);
+                        if (user.isAttended()) {
+                            menu.findItem(R.id.attend).setTitle("Remove Attendance");
+                        } else {
+                            menu.findItem(R.id.attend).setTitle("Attend");
+                        }
+                    }
+                }
+            }
+        });
         recyclerView.setAdapter(adapter);
 
         String courseId = getArguments().getString("courseId");
@@ -282,6 +312,22 @@ public class CourseSessionFragment extends Fragment {
         });
 
         return binding.getRoot();
+    }
+
+    private void attendUser(StudentAttended user, int position) {
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        if (attendance != null) {
+            database.getReference("course_attendance").child(attendance.getSessionId()).get().addOnSuccessListener(dataSnapshot -> {
+                if (dataSnapshot.exists()) {
+                    CourseAttendance attendance = dataSnapshot.getValue(CourseAttendance.class);
+                    assert attendance != null;
+                    if (attendance.getAttended().containsKey(user.getId())) {
+                        attendance.getAttended().put(user.getId(), !attendance.getAttended().get(user.getId()));
+                        database.getReference("course_attendance").child(attendance.getSessionId()).setValue(attendance);
+                    }
+                }
+            });
+        }
     }
 
     private void export(Course course, CourseSession session) {
