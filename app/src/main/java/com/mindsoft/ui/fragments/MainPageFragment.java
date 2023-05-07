@@ -110,6 +110,11 @@ public class MainPageFragment extends Fragment {
                                             startActivity(intent);
                                         }
 
+                                        if (!User.current.isValidated()) {
+                                            navController.navigate(R.id.action_main_page_to_validation_required);
+                                            return;
+                                        }
+
                                         navController.navigate(R.id.action_main_page_to_student_home);
                                     } else {
                                         mAuth.signOut();
