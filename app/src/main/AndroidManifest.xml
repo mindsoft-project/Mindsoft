@@ -25,14 +25,17 @@
         android:theme="@style/Theme.Mindsoft"
         tools:targetApi="31">
         <activity
+            android:name=".ui.activity.FingerPrint"
+            android:exported="false" />
+        <activity
             android:name=".ui.activity.CreateAccountActivity"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".ui.activity.DetectorActivity"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".ui.activity.HomeActivity"
-            android:exported="true"
+            android:exported="false"
             android:launchMode="singleTask" />
         <activity
             android:name=".ui.activity.SplashscreenActivity"
@@ -45,28 +48,28 @@
         </activity>
         <activity
             android:name=".ui.activity.LoginActivity"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".ui.introActivities.Intro.PrivacyAndPolicyActivity"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".ui.introActivities.Intro.WelcomeActivity"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".ui.introActivities.Intro.AboutUsActivity"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".ui.introActivities.Intro.LightDarkModeActivity"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".ui.activity.CameraActivity"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".ui.activity.FindMyStudentCodeActivity"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".ui.activity.TestActivity"
-            android:exported="true" />
+            android:exported="false" />
     </application>
 
 </manifest>
