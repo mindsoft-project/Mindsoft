@@ -154,9 +154,9 @@
                 android:fontFamily="@font/font_almarai_light"
                 android:text="   Show Password__ "
                 android:textColor="@color/logoInversColor"
-                android:textSize="18sp"
+                android:textSize="15sp"
                 android:textStyle="bold"
-                android:layout_marginStart="50dp"
+                android:layout_marginStart="120dp"
                 android:drawableRight="@drawable/ic_baseline_remove_red_eye_24"/>
         </LinearLayout>
 
