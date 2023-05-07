@@ -109,6 +109,7 @@ public class SystemRepository {
                 }
                 Connection.Response resp = req.execute();
 
+                System.out.println(resp.body());
                 if (resp.body().contains("OR_MAIN_PAGE")) {
                     doc = Jsoup.connect(BASE_URL + "ED/OR_MAIN_PAGE.aspx").cookies(resp.cookies()).get();
 
