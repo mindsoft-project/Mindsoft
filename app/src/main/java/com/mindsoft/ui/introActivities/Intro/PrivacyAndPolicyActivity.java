@@ -3,11 +3,16 @@ package com.mindsoft.ui.introActivities.Intro;
 
 
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.VideoView;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.bumptech.glide.Glide;
 import com.mindsoft.R;
 
 public class PrivacyAndPolicyActivity extends AppCompatActivity {
@@ -16,15 +21,13 @@ public class PrivacyAndPolicyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_privacy_and_policy);
 
-        VideoView sampleVideoView1 = findViewById(R.id.sampleVideoView1);
         Button buttonNext = findViewById(R.id.buttonNext);
+        ImageView imageView = findViewById(R.id.sampleImageView1);
 
-        Uri uri = Uri.parse("android.resource://"
-                + getPackageName() + "/" + R.raw.big1
-        );
-
-        sampleVideoView1.setVideoURI(uri);
-        sampleVideoView1.start();
+        Glide.with(this)
+                .asGif()
+                .load(R.raw.crop)
+                .into(imageView);
 
         buttonNext.setOnClickListener(v -> {
             Intent intent = new Intent(getApplicationContext(), AboutUsActivity.class);
