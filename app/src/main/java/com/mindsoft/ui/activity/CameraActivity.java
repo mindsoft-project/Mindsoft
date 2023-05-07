@@ -242,6 +242,7 @@ public abstract class CameraActivity
     private boolean isHardwareLevelSupported(
             CameraCharacteristics characteristics, int requiredLevel) {
         int deviceLevel = characteristics.get(CameraCharacteristics.INFO_SUPPORTED_HARDWARE_LEVEL);
+        Toast.makeText(this, "T " + deviceLevel + " , " + requiredLevel, Toast.LENGTH_SHORT).show();
         if (deviceLevel == CameraCharacteristics.INFO_SUPPORTED_HARDWARE_LEVEL_LEGACY) {
             return requiredLevel == deviceLevel;
         }

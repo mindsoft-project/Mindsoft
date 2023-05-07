@@ -37,24 +37,22 @@ public class SplashscreenActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
 
-
         /////Declaration----
-         logo = binding.logo;
-         s1 = binding.view1;
+        logo = binding.logo;
+        s1 = binding.view1;
         s2 = binding.viwe2;
         s3 = binding.viwe3;
 
         ////----///Animations-------
         Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.base_line_anim);
         logo.startAnimation(animation);
-         animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.appere_left);
+        animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.appere_left);
         s1.startAnimation(animation);
-         animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.appere_right);
+        animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.appere_right);
         s2.startAnimation(animation);
         animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.appere_right);
         s3.startAnimation(animation);
         ///Animations-------
-
 
 
         FirebaseApp.initializeApp(this);

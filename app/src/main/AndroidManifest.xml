@@ -3,6 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.mindsoft">
 
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.CAMERA" />
@@ -59,6 +63,9 @@
             android:exported="true" />
         <activity
             android:name=".ui.activity.FindMyStudentCodeActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.activity.TestActivity"
             android:exported="true" />
     </application>
 
