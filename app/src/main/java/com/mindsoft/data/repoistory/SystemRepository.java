@@ -140,9 +140,11 @@ public class SystemRepository {
                         }
                         studentInfo.postValue(info);
                     } else {
+                        System.out.println("CKIER");
                         studentInfo.postValue(null);
                     }
                 } else {
+                    System.out.println("FREIASD");
                     studentInfo.postValue(null);
                 }
             } catch (IOException ignored) {
