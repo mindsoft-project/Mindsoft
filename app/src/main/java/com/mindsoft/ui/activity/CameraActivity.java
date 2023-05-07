@@ -260,23 +260,24 @@ public abstract class CameraActivity
         this.cameraId = chooseCamera();
 
         Fragment fragment;
-        if (useCamera2API) {
-            CameraConnectionFragment camera2Fragment =
-                    CameraConnectionFragment.newInstance(
-                            (CameraConnectionFragment.ConnectionCallback) (size, rotation) -> {
-                                previewHeight = size.getHeight();
-                                previewWidth = size.getWidth();
-                                CameraActivity.this.onPreviewSizeChosen(size, rotation);
-                            },
-                            this,
-                            getLayoutId(),
-                            getDesiredPreviewFrameSize());
-
-            camera2Fragment.setCamera(cameraId);
-            fragment = camera2Fragment;
-
-        } else {
-
+//        if (useCamera2API) {
+//            CameraConnectionFragment camera2Fragment =
+//                    CameraConnectionFragment.newInstance(
+//                            (CameraConnectionFragment.ConnectionCallback) (size, rotation) -> {
+//                                previewHeight = size.getHeight();
+//                                previewWidth = size.getWidth();
+//                                CameraActivity.this.onPreviewSizeChosen(size, rotation);
+//                            },
+//                            this,
+//                            getLayoutId(),
+//                            getDesiredPreviewFrameSize());
+//
+//            camera2Fragment.setCamera(cameraId);
+//            fragment = camera2Fragment;
+//
+//        }
+        {
+            System.out.println("FAFAF");
             int facing = (usingFace == CameraCharacteristics.LENS_FACING_BACK) ?
                     Camera.CameraInfo.CAMERA_FACING_BACK :
                     Camera.CameraInfo.CAMERA_FACING_FRONT;
