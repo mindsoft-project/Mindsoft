@@ -10,6 +10,7 @@ import android.hardware.camera2.CameraCharacteristics;
 import android.hardware.camera2.CameraManager;
 import android.hardware.camera2.params.StreamConfigurationMap;
 import android.media.ImageReader;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
@@ -209,6 +210,12 @@ public abstract class CameraActivity
                 final CameraCharacteristics characteristics = manager.getCameraCharacteristics(cameraId);
 
 
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                    System.out.println("CHARED1 " + characteristics.getKeysNeedingPermission());
+                }
+                for (CameraCharacteristics.Key<?> key : characteristics.getKeys()) {
+                    System.out.println("FFAR " + key.getName() + " = " + characteristics.get(key));
+                }
                 final StreamConfigurationMap map =
                         characteristics.get(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP);
 
@@ -230,7 +237,7 @@ public abstract class CameraActivity
                         || isHardwareLevelSupported(
                         characteristics, CameraCharacteristics.INFO_SUPPORTED_HARDWARE_LEVEL_FULL);
 
-
+                Toast.makeText(this, "ENA " + useCamera2API, Toast.LENGTH_SHORT).show();
                 return cameraId;
             }
         } catch (CameraAccessException ignored) {

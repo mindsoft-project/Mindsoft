@@ -110,11 +110,6 @@ public class MainPageFragment extends Fragment {
                                             startActivity(intent);
                                         }
 
-                                        if (!User.current.isValidated()) {
-                                            navController.navigate(R.id.action_main_page_to_validation_required);
-                                            return;
-                                        }
-
                                         navController.navigate(R.id.action_main_page_to_student_home);
                                     } else {
                                         mAuth.signOut();
@@ -123,24 +118,26 @@ public class MainPageFragment extends Fragment {
                                         startActivity(intent);
                                     }
                                 });
+                    } else {
+
+                        if (User.current.hasRole(Role.ADMIN)) {
+                            activity.mNavigationView.getMenu().findItem(R.id.pending_requests).setVisible(true);
+                        }
+
+                        if (!User.current.isValidated()) {
+                            navController.navigate(R.id.action_main_page_to_validation_required);
+                            return;
+                        }
+
+                        if (User.current.hasRole(Role.PROFESSOR)) {
+                            navController.navigate(R.id.action_main_page_to_professor_home);
+                            return;
+                        }
+                        if (User.current.hasRole(Role.TEACHING_ASSISTANT)) {
+                            navController.navigate(R.id.action_main_page_to_assistant_home);
+                        }
                     }
 
-                    if (User.current.hasRole(Role.ADMIN)) {
-                        activity.mNavigationView.getMenu().findItem(R.id.pending_requests).setVisible(true);
-                    }
-
-                    if (!User.current.isValidated()) {
-                        navController.navigate(R.id.action_main_page_to_validation_required);
-                        return;
-                    }
-
-                    if (User.current.hasRole(Role.PROFESSOR)) {
-                        navController.navigate(R.id.action_main_page_to_professor_home);
-                        return;
-                    }
-                    if (User.current.hasRole(Role.TEACHING_ASSISTANT)) {
-                        navController.navigate(R.id.action_main_page_to_assistant_home);
-                    }
                 } else {
                     mAuth.signOut();
                     Intent intent = new Intent(activity, LoginActivity.class);
