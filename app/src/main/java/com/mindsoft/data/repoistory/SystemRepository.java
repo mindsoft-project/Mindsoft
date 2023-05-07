@@ -85,6 +85,7 @@ public class SystemRepository {
                     studentCode.postValue(null);
                 }
             } catch (IOException ignored) {
+                ignored.printStackTrace();
                 studentCode.postValue(null);
             }
         }).start();
@@ -145,6 +146,7 @@ public class SystemRepository {
                     studentInfo.postValue(null);
                 }
             } catch (IOException ignored) {
+                ignored.printStackTrace();
                 studentInfo.postValue(null);
             }
         }).start();

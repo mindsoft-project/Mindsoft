@@ -199,6 +199,7 @@ public class CameraConnectionFragment extends Fragment {
                 textureView.setAspectRatio(previewSize.getHeight(), previewSize.getWidth());
             }
         } catch (final CameraAccessException ignored) {
+            ignored.printStackTrace();
         } catch (final NullPointerException e) {
             throw new IllegalStateException("N");
         }
@@ -264,11 +265,13 @@ public class CameraConnectionFragment extends Fragment {
 
             manager.openCamera(cameraId, stateCallback, backgroundHandler);
         } catch (final CameraAccessException ignored) {
+            ignored.printStackTrace();
         } catch (final InterruptedException e) {
             throw new RuntimeException("Interrupted while trying to lock camera opening.", e);
         }
 
     }
+
     public void setCamera(String cameraId) {
         this.cameraId = cameraId;
     }
@@ -351,6 +354,7 @@ public class CameraConnectionFragment extends Fragment {
                                 captureSession.setRepeatingRequest(
                                         previewRequest, captureCallback, backgroundHandler);
                             } catch (final CameraAccessException ignored) {
+                                ignored.printStackTrace();
                             }
                         }
 

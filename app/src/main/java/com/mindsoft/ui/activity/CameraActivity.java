@@ -237,7 +237,6 @@ public abstract class CameraActivity
                         || isHardwareLevelSupported(
                         characteristics, CameraCharacteristics.INFO_SUPPORTED_HARDWARE_LEVEL_FULL);
 
-                Toast.makeText(this, "ENA " + useCamera2API, Toast.LENGTH_SHORT).show();
                 return cameraId;
             }
         } catch (CameraAccessException ignored) {
@@ -249,7 +248,6 @@ public abstract class CameraActivity
     private boolean isHardwareLevelSupported(
             CameraCharacteristics characteristics, int requiredLevel) {
         int deviceLevel = characteristics.get(CameraCharacteristics.INFO_SUPPORTED_HARDWARE_LEVEL);
-        Toast.makeText(this, "T " + deviceLevel + " , " + requiredLevel, Toast.LENGTH_SHORT).show();
         if (deviceLevel == CameraCharacteristics.INFO_SUPPORTED_HARDWARE_LEVEL_LEGACY) {
             return requiredLevel == deviceLevel;
         }
@@ -277,7 +275,6 @@ public abstract class CameraActivity
 //
 //        }
         {
-            System.out.println("FAFAF");
             int facing = (usingFace == CameraCharacteristics.LENS_FACING_BACK) ?
                     Camera.CameraInfo.CAMERA_FACING_BACK :
                     Camera.CameraInfo.CAMERA_FACING_FRONT;
