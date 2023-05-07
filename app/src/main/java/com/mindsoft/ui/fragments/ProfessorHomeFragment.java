@@ -47,8 +47,7 @@ public class ProfessorHomeFragment extends Fragment {
                         public void onClick(Course course) {
                             Bundle bundle = new Bundle();
                             bundle.putString("courseId", course.getId());
-                            System.out.println(course.getId());
-                            System.out.println(bundle);
+
                             navController.navigate(R.id.action_professor_to_course, bundle);
                         }
 

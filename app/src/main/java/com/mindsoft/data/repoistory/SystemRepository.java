@@ -62,7 +62,6 @@ public class SystemRepository {
     public void fetchStudentCode(String nationalID) {
         new Thread(() -> {
             try {
-                System.out.println(BASE_URL + "ED" + "/GetStudCode.aspx");
                 Document doc = Jsoup.connect(BASE_URL + "ED" + "/GetStudCode.aspx").get();
                 Map<String, String> fields = getFormFields(doc);
                 fields.put("ctl00$ScriptManager1", "ctl00$cntphmaster$panal1|ctl00$cntphmaster$btnGet");
@@ -149,6 +148,7 @@ public class SystemRepository {
                 }
             } catch (IOException ignored) {
                 ignored.printStackTrace();
+                System.out.println("AIOIJD");
                 studentInfo.postValue(null);
             }
         }).start();

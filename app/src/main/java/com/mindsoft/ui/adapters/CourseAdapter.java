@@ -35,7 +35,6 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder
     }
 
     public void setCourseList(List<Course> courseList) {
-        System.out.println(courseList);
         this.courseList = courseList;
     }
 

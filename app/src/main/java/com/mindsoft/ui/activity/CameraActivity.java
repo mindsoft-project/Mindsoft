@@ -210,12 +210,6 @@ public abstract class CameraActivity
                 final CameraCharacteristics characteristics = manager.getCameraCharacteristics(cameraId);
 
 
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                    System.out.println("CHARED1 " + characteristics.getKeysNeedingPermission());
-                }
-                for (CameraCharacteristics.Key<?> key : characteristics.getKeys()) {
-                    System.out.println("FFAR " + key.getName() + " = " + characteristics.get(key));
-                }
                 final StreamConfigurationMap map =
                         characteristics.get(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP);
 

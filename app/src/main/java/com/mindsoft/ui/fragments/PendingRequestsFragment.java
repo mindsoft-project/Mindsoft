@@ -71,7 +71,6 @@ public class PendingRequestsFragment extends Fragment {
             }
             if (value != null) {
                 for (DocumentChange dc : value.getDocumentChanges()) {
-                    System.out.println(dc.getDocument());
                     User user = dc.getDocument().toObject(User.class);
                     int i = 0;
                     boolean rem = false;
