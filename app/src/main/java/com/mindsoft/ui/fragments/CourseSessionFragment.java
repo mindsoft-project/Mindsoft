@@ -95,6 +95,8 @@ public class CourseSessionFragment extends Fragment {
     private DatabaseReference currentUserLocation;
     private DatabaseReference instructorUserLocation;
     private ValueEventListener currentLocationListener;
+    private ValueEventListener courseAttendanceListener;
+    private DatabaseReference courseSessionRef;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -161,8 +163,7 @@ public class CourseSessionFragment extends Fragment {
 
                 assert course != null;
                 CourseRepository.getInstance().getEnrolledUsers(course).observe(requireActivity(), students -> {
-                    System.out.println(students);
-                    database.getReference("course_attendance").child(sessionId).addValueEventListener(new ValueEventListener() {
+                    courseAttendanceListener = new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             if (snapshot.exists()) {
@@ -185,7 +186,9 @@ public class CourseSessionFragment extends Fragment {
                                     if (snapshot.exists()) {
                                         currentUserLocation.removeValue();
                                     }
-                                    User.current.fetchLocation(requireActivity());
+                                    if (getActivity() != null) {
+                                        User.current.fetchLocation(requireActivity());
+                                    }
                                 }
 
                                 @Override
@@ -245,8 +248,9 @@ public class CourseSessionFragment extends Fragment {
                         @Override
                         public void onCancelled(@NonNull DatabaseError error) {
                         }
-                    });
-
+                    };
+                    courseSessionRef = database.getReference("course_attendance").child(sessionId);
+                    courseSessionRef.addValueEventListener(courseAttendanceListener);
                 });
 
                 session.getInstructor().get().addOnSuccessListener(userObj -> {
@@ -512,6 +516,9 @@ public class CourseSessionFragment extends Fragment {
         if (currentUserLocation != null && currentLocationListener != null) {
             currentUserLocation.removeEventListener(currentLocationListener);
         }
+        if (courseSessionRef != null && courseAttendanceListener != null) {
+            courseSessionRef.removeEventListener(courseAttendanceListener);
+        }
     }
 
     @Override
@@ -532,7 +539,9 @@ public class CourseSessionFragment extends Fragment {
     private void startAttendance(Course course, CourseSession session) {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
 
-        assert attendance != null;
+        if (attendance == null) {
+            return;
+        }
         attendance.setTaking(true);
         database.getReference("course_attendance").child(session.getId()).setValue(attendance);
         binding.timer.setVisibility(View.VISIBLE);
@@ -544,7 +553,9 @@ public class CourseSessionFragment extends Fragment {
                 if (snapshot.exists()) {
                     currentUserLocation.removeValue();
                 }
-                User.current.fetchLocation(requireActivity());
+                if (getActivity() != null) {
+                    User.current.fetchLocation(requireActivity());
+                }
             }
 
             @Override
