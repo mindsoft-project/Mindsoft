@@ -33,7 +33,7 @@ public class SystemRepository {
 
     private static final Map<String, Integer> departments = new HashMap<>() {{
         put("برنامج تكنولوجيا المعلومات", Department.ICT.getId());
-        put("رنامج تكنولوجيا المعلومات/ برنامج تكنولوجيا البرمجيات", Department.ICT.getId());
+        put("برنامج تكنولوجيا المعلومات/ برنامج تكنولوجيا البرمجيات", Department.ICT.getId());
     }};
 
     public LiveData<String> getStudentCode(String nationalID) {
@@ -135,6 +135,7 @@ public class SystemRepository {
                         info.setLastName(name[1] + " " + name[2]);
                         info.setSemester(2 * year - semester);
                         info.setEmail(_mail);
+                        System.out.println(_dep);
                         if (departments.containsKey(_dep)) {
                             info.setDepartmentID(departments.get(_dep));
                         }

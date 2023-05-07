@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -36,6 +37,10 @@ public class AdditionalInfoFragment extends Fragment {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         binding.submit.setOnClickListener(v -> {
+            if (binding.section.getText().toString().isEmpty()) {
+                Toast.makeText(requireActivity(), "You should enter section number", Toast.LENGTH_SHORT).show();
+                return;
+            }
             Student.current.setSection(Integer.parseInt(binding.section.getText().toString()));
             Student.current.getReference().set(Student.current).addOnSuccessListener(command -> {
                 navController.navigate(R.id.action_additional_info_to_main_page);
