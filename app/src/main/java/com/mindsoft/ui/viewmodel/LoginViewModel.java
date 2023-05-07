@@ -83,9 +83,10 @@ public class LoginViewModel extends ViewModel {
                                                     student.setId(mUser.getUid());
                                                     student.setUser(user.getReference());
                                                     db.collection(Student.COLLECTION).document(user.getId()).set(student).addOnCompleteListener(stdcmd -> {
-                                                        if (task.isSuccessful()) {
+                                                        if (stdcmd.isSuccessful()) {
                                                             listener.onSuccess();
                                                         } else {
+                                                            System.out.println(stdcmd.getException().getMessage());
                                                             listener.onError("Could not create user with this data");
                                                         }
                                                     });
@@ -94,10 +95,12 @@ public class LoginViewModel extends ViewModel {
                                                 }
                                             });
                                         } else {
+                                            System.out.println(cmd.getException().getMessage());
                                             listener.onError("Could not create user with this data.");
                                         }
                                     });
                                 } else {
+                                    System.out.println(task.getException().getMessage());
                                     listener.onError("Could not create user with this data.");
                                 }
                             });

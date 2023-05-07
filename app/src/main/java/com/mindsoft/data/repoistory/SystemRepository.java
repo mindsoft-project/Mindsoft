@@ -91,6 +91,7 @@ public class SystemRepository {
     }
 
     public void fetchStudentData(String studentCode, String nationalID) {
+        System.out.println("FEREV " + studentCode + "< " + nationalID + " >");
         new Thread(() -> {
             try {
                 Document doc = Jsoup.connect(BASE_URL + "ED_Login.aspx").get();
