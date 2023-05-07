@@ -33,6 +33,7 @@ public class SystemRepository {
 
     private static final Map<String, Integer> departments = new HashMap<>() {{
         put("برنامج تكنولوجيا المعلومات", Department.ICT.getId());
+        put("رنامج تكنولوجيا المعلومات/ برنامج تكنولوجيا البرمجيات", Department.ICT.getId());
     }};
 
     public LiveData<String> getStudentCode(String nationalID) {
@@ -91,7 +92,6 @@ public class SystemRepository {
     }
 
     public void fetchStudentData(String studentCode, String nationalID) {
-        System.out.println("FEREV " + studentCode + "< " + nationalID + " >");
         new Thread(() -> {
             try {
                 Document doc = Jsoup.connect(BASE_URL + "ED_Login.aspx").get();
@@ -109,7 +109,6 @@ public class SystemRepository {
                 }
                 Connection.Response resp = req.execute();
 
-                System.out.println(resp.body());
                 if (resp.body().contains("OR_MAIN_PAGE")) {
                     doc = Jsoup.connect(BASE_URL + "ED/OR_MAIN_PAGE.aspx").cookies(resp.cookies()).get();
 
@@ -141,16 +140,13 @@ public class SystemRepository {
                         }
                         studentInfo.postValue(info);
                     } else {
-                        System.out.println("CKIER");
                         studentInfo.postValue(null);
                     }
                 } else {
-                    System.out.println("FREIASD");
                     studentInfo.postValue(null);
                 }
             } catch (IOException ignored) {
                 ignored.printStackTrace();
-                System.out.println("AIOIJD");
                 studentInfo.postValue(null);
             }
         }).start();
