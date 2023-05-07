@@ -111,24 +111,32 @@ public class CourseRepository {
     public MutableLiveData<List<User>> getEnrolledUsers(Course course) {
         MutableLiveData<List<User>> students = new MutableLiveData<>();
 
+        System.out.println(course.getEnrolledByIds());
         if (course.getEnrolledByIds().isEmpty()) {
             return students;
         }
 
         FirebaseFirestore.getInstance()
                 .collection(User.COLLECTION)
-                .whereIn(FieldPath.documentId(), course.getEnrolledByIds())
                 .get()
-                .addOnSuccessListener(command -> {
-                    List<User> studentList = new ArrayList<>();
-                    List<DocumentSnapshot> snapshots = command.getDocuments();
+                .addOnCompleteListener(command -> {
+                    if (command.isSuccessful()) {
+                        List<User> studentList = new ArrayList<>();
+                        List<DocumentSnapshot> snapshots = command.getResult().getDocuments();
 
-                    for (DocumentSnapshot snapshot : snapshots) {
-                        User student = snapshot.toObject(User.class);
-                        studentList.add(student);
+                        for (DocumentSnapshot snapshot : snapshots) {
+                            User student = snapshot.toObject(User.class);
+                            if (course.getEnrolledByIds().contains(student.getId())) {
+                                studentList.add(student);
+                            }
+                        }
+
+                        System.out.println(studentList);
+                        students.postValue(studentList);
+                    } else {
+                        System.out.println(command.getException().getMessage());
                     }
 
-                    students.postValue(studentList);
                 });
         return students;
 

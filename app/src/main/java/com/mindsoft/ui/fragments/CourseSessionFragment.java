@@ -161,6 +161,7 @@ public class CourseSessionFragment extends Fragment {
 
                 assert course != null;
                 CourseRepository.getInstance().getEnrolledUsers(course).observe(requireActivity(), students -> {
+                    System.out.println(students);
                     database.getReference("course_attendance").child(sessionId).addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
