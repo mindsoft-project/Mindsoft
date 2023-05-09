@@ -1,48 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="20dp"
-    android:background="@color/baseBackground">
-
-    <LinearLayout
+    android:background="@color/baseBackground"
+    android:padding="5dp">
+    <ImageView
+        android:id="@+id/imageView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:fontFamily="@font/almarai_extra_bold"
-            android:text="Enrolled Courses"
-            android:textSize="25sp"
-            android:textColor="@color/textBackground"/>
-
-        <ImageView
-            android:id="@+id/add"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:src="@drawable/ic_baseline_add_box"
-            app:tint="@color/Gold" />
-    </LinearLayout>
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="250dp"
+        app:srcCompat="@drawable/earth_shape" />
+    <TextView
+        android:id="@+id/enrolledCoursesTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
+        android:text="Enrolled Courses"
+        android:textColor="@color/textBackground"
+        android:textSize="25sp"
+        android:fontFamily="@font/almarai_extra_bold"/>
 
     <ImageView
+        android:id="@+id/addCourseImageView"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_alignTop="@+id/enrolledCoursesTextView"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/ic_baseline_add_box"
+        app:tint="@color/Gold"/>
+
+    <ImageView
+        android:id="@+id/dividerImageView"
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:layout_marginBottom="20dp"
+        android:layout_below="@+id/enrolledCoursesTextView"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
         android:src="@drawable/label_shape"
-        android:tint="@color/textGold"/>
+        android:tint="@color/Gold"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_below="@+id/dividerImageView"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:orientation="vertical"
+app:spanCount="3"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:listitem="@layout/course_item"
-        tools:orientation="horizontal"
-        tools:spanCount="2" />
-</LinearLayout>
+        tools:orientation="horizontal" />
+
+
+
+</RelativeLayout>

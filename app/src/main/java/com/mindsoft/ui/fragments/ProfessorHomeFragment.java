@@ -1,9 +1,13 @@
 package com.mindsoft.ui.fragments;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -32,15 +36,26 @@ public class ProfessorHomeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentProfessorHomeBinding.inflate(inflater, container, false);
         RecyclerView courses = binding.recyclerView;
-        courses.setLayoutManager(new LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false));
+        courses.setLayoutManager(new LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false));
         NavController navController = NavHostFragment.findNavController(this);
+        Animation animation = AnimationUtils.loadAnimation(getActivity().getApplicationContext(), R.anim.base_line_anim);
+        Animation animation2 = AnimationUtils.loadAnimation(getActivity().getApplicationContext(), R.anim.rotate_infinite);
+
+        binding.imageView4.startAnimation(animation);
+        // Delay the start of the second animation for 2 seconds
+        Handler handler = new Handler(Looper.getMainLooper());
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                binding.imageView4.startAnimation(animation2);
+            }
+        }, 1500);
 
         CourseRepository.getInstance()
                 .getOwnedCourses(User.current)
                 .observe(this.requireActivity(), courseList -> {
 
                     CourseAdapter.Options options = new CourseAdapter.Options();
-                    options.setWidth(350);
 
                     CourseAdapter courseAdapter = new CourseAdapter(courseList, options, new CourseAdapter.OnCourseClickListener() {
                         @Override

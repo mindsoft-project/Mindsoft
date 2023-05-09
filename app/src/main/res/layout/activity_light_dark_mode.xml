@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.introActivities.Intro.LightDarkModeActivity"
-    android:background="@color/baseBackground">
+    android:background="@color/baseBackground"
+    tools:context=".ui.introActivities.Intro.LightDarkModeActivity">
 
     <ImageView
         android:id="@+id/imageView12"
         android:layout_width="185dp"
         android:layout_height="65dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="24dp"
         android:src="@drawable/light_complete_logo2_cropped"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,14 +22,13 @@
         android:layout_width="307dp"
         android:layout_height="55dp"
 
-        android:layout_marginBottom="192dp"
-
+        android:layout_marginTop="36dp"
         android:text="next"
         android:textColor="@color/black"
         app:cornerRadius="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView10" />
 
     <ImageView
         android:id="@+id/imageView11"
@@ -41,6 +40,7 @@
         app:layout_constraintHorizontal_bias="0.154"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
@@ -60,11 +60,11 @@
         android:id="@+id/imageView10"
         android:layout_width="178dp"
         android:layout_height="267dp"
-        android:layout_marginBottom="32dp"
-        app:layout_constraintBottom_toTopOf="@+id/buttonNext2"
+        android:layout_marginTop="12dp"
         app:layout_constraintEnd_toStartOf="@+id/imageView9"
         app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switchLightDarkModeButton"
         app:srcCompat="@drawable/ex_light" />
 
     <ImageView

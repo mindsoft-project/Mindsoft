@@ -1,9 +1,13 @@
 package com.mindsoft.ui.fragments;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -32,18 +36,27 @@ public class StudentHomeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentStudentHomeBinding.inflate(inflater, container, false);
         RecyclerView courses = binding.recyclerView;
-        courses.setLayoutManager(new LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false));
+        courses.setLayoutManager(new LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false));
 
         NavController navController = NavHostFragment.findNavController(this);
+        Animation animation = AnimationUtils.loadAnimation(getActivity().getApplicationContext(), R.anim.base_line_anim);
+        Animation animation2 = AnimationUtils.loadAnimation(getActivity().getApplicationContext(), R.anim.rotate_infinite);
 
-        binding.add.setOnClickListener(v -> {
+        binding.imageView4.startAnimation(animation);
+        Handler handler = new Handler(Looper.getMainLooper());
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                binding.imageView4.startAnimation(animation2);
+            }
+        }, 1500);
+        binding.addCourseImageView.setOnClickListener(v -> {
             navController.navigate(R.id.action_student_to_course_list);
         });
         CourseRepository.getInstance()
                 .getEnrolledCourses(Student.current)
                 .observe(this.requireActivity(), courseList -> {
                     CourseAdapter.Options options = new CourseAdapter.Options();
-                    options.setWidth(350);
                     CourseAdapter courseAdapter = new CourseAdapter(courseList, options, new CourseAdapter.OnCourseClickListener() {
                         @Override
                         public void onClick(Course course) {

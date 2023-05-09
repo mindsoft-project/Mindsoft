@@ -1,43 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="150dp"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
     android:layout_margin="8dp"
     android:orientation="vertical"
-    app:cardCornerRadius="10dp">
+    app:cardCornerRadius="10dp"
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="80dp">
+    android:backgroundTint="@color/Gold"
+>
 
-        <View
-            android:id="@+id/banner_color"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/Gold"
-            android:contentDescription="@null"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
-        <View
-            android:id="@+id/overlay"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/course_banner_overlay"
-            android:contentDescription="@null"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@android:color/transparent"
         android:orientation="vertical"
         android:padding="10dp"
@@ -48,7 +26,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
 
 
@@ -56,15 +34,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+<ImageView
+    android:layout_width="50dp"
+    android:layout_height="50dp"
+    android:tint="@color/Snow"
+    android:src="@drawable/ic_baseline_hive_24"></ImageView>
 
                 <TextView
                     android:id="@+id/course_name"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/almarai_light"
                     android:text="Test"
-                    android:textColor="@color/white"
+                    android:textColor="#06091E"
                     android:textSize="20sp" />
 
                 <ImageView
@@ -72,7 +55,7 @@
                     android:layout_width="32dp"
                     android:layout_height="32dp"
                     android:src="@drawable/ic_baseline_add_box"
-                    android:visibility="gone"
+android:visibility="gone"
                     app:tint="@color/white" />
 
             </LinearLayout>
@@ -83,14 +66,15 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/almarai_extra_bold"
                 android:text="Test"
-                android:textColor="@color/white"
+                android:textColor="#06091E"
                 android:textSize="12sp" />
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="1dp"
                 android:contentDescription="@null"
-                android:src="@drawable/course_border"
+                android:src="@drawable/label_shape"
+                android:tint="@color/Snow"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -104,7 +88,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/almarai_regular"
             android:text="Test"
-            android:textColor="@color/textBackground"
+            android:textColor="#06091E"
             android:textSize="14sp" />
 
 

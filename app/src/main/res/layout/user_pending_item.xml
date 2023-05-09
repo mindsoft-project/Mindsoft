@@ -10,7 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/success"
-        android:paddingEnd="20dp">
+        android:paddingEnd="20dp"
+        >
 
         <ImageView
             android:id="@+id/accept_icon"
@@ -64,10 +65,12 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/almarai_regular"
                 android:gravity="right"
+                android:textColor="@color/textBackground"
                 android:text="عمر اشرف محمد عبداللطيف"
                 android:textSize="16sp" />
 
             <TextView
+                android:textColor="@color/textBackground"
                 android:id="@+id/title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
