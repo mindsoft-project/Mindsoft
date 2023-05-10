@@ -50,15 +50,17 @@ public class LoginActivity extends AppCompatActivity {
                 if (binding.password.getTransformationMethod() == PasswordTransformationMethod.getInstance()) {
                     // Show the password
                     binding.showPass.setText("   Hide Password___ ");
-                    binding.password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());}
-                else {
+                    binding.password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                } else {
                     binding.showPass.setText("   Show Password__ ");
 
                     // Hide the password
-                    binding.password.setTransformationMethod(PasswordTransformationMethod.getInstance());}
+                    binding.password.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                }
                 binding.password.setSelection(binding.password.getText().length());
             }
-        });    binding.submit.setOnClickListener(v -> {
+        });
+        binding.submit.setOnClickListener(v -> {
             String email = binding.email.getText().toString();
             String password = binding.password.getText().toString();
 
@@ -86,7 +88,7 @@ public class LoginActivity extends AppCompatActivity {
                                     User user = command.toObject(User.class);
                                     if (user == null) return;
 
-                                    Intent intent = new Intent(LoginActivity.this, FingerPrint.class);
+                                    Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                     startActivity(intent);
                                 });

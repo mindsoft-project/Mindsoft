@@ -1,6 +1,7 @@
 package com.mindsoft.ui.fragments;
 
 import android.Manifest;
+import android.app.NotificationManager;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.media.MediaScannerConnection;
@@ -19,6 +20,8 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
@@ -384,6 +387,8 @@ public class CourseSessionFragment extends Fragment {
             data.get(student.getSection()).put(student.getFullName(), attendance.getAttended().getOrDefault(student.getId(), false));
         }
 
+        System.out.println(data);
+
         Map<Integer, XSSFSheet> sheets = new HashMap<>();
         for (Integer section : data.keySet()) {
             XSSFSheet sheet = workbook.createSheet("Section " + section);
@@ -435,23 +440,23 @@ public class CourseSessionFragment extends Fragment {
                 XSSFCell stdAttended = studentRow.createCell(2);
                 stdAttended.setCellValue(info.getValue() ? "T" : "F");
                 stdAttended.setCellStyle(bordered);
-
-                File downloadsDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
-                File file = new File(downloadsDir, String.format("%s - %s.xlsx", course.getName(), session.getTitle()));
-                try {
-                    // Write some data to the file
-                    FileOutputStream outputStream = new FileOutputStream(file);
-                    workbook.write(outputStream);
-                    // Notify the media scanner to add the file to the Downloads directory
-                    MediaScannerConnection.scanFile(requireContext(), new String[]{file.getPath()}, null, null);
-
-                    // Show a toast message to indicate that the file was saved in the Downloads directory
-                    Toast.makeText(requireActivity(), "File saved in Downloads directory", Toast.LENGTH_SHORT).show();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
+                i++;
             }
+        }
+
+        File downloadsDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+        File file = new File(downloadsDir, String.format("%s - %s.xlsx", course.getName(), session.getTitle()));
+        try {
+            // Write some data to the file
+            FileOutputStream outputStream = new FileOutputStream(file);
+            workbook.write(outputStream);
+            // Notify the media scanner to add the file to the Downloads directory
+            MediaScannerConnection.scanFile(requireContext(), new String[]{file.getPath()}, null, null);
+
+
+            Toast.makeText(requireActivity(), "File saved in Downloads directory", Toast.LENGTH_SHORT).show();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
