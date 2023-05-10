@@ -26,7 +26,7 @@ public class PrivacyAndPolicyActivity extends AppCompatActivity {
 
         Glide.with(this)
                 .asGif()
-                .load(R.raw.crop)
+                .load(R.raw.facescan)
                 .into(imageView);
 
         buttonNext.setOnClickListener(v -> {
