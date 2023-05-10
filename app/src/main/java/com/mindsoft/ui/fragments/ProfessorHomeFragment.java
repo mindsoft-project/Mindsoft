@@ -17,6 +17,7 @@ import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.mindsoft.R;
@@ -40,7 +41,10 @@ public class ProfessorHomeFragment extends Fragment {
         NavController navController = NavHostFragment.findNavController(this);
         Animation animation = AnimationUtils.loadAnimation(getActivity().getApplicationContext(), R.anim.base_line_anim);
         Animation animation2 = AnimationUtils.loadAnimation(getActivity().getApplicationContext(), R.anim.rotate_infinite);
-
+        Glide.with(this)
+                .asGif()
+                .load(R.raw.earths)
+                .into(binding.imageView5);
         binding.imageView4.startAnimation(animation);
         // Delay the start of the second animation for 2 seconds
         Handler handler = new Handler(Looper.getMainLooper());

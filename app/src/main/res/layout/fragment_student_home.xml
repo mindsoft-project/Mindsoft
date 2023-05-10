@@ -64,5 +64,17 @@ app:spanCount="3"
         tools:orientation="horizontal" />
 
 
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="69dp"
+        android:layout_height="52dp"
+        android:layout_alignBottom="@+id/enrolledCoursesTextView"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="-18dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginBottom="1dp"
+        android:layout_toEndOf="@+id/enrolledCoursesTextView"
+        android:src="@color/Aqua"
+        android:tint="@color/Gold" />
 
 </RelativeLayout>
