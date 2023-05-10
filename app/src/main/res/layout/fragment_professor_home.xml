@@ -26,6 +26,20 @@
 
         android:textSize="25sp" />
 
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="87dp"
+        android:layout_height="58dp"
+        android:layout_alignBottom="@+id/tv_courses"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="-7dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="1dp"
+        android:layout_toEndOf="@+id/tv_courses"
+        android:src="@color/Aqua"
+        android:tint="@color/Gold" />
+
     <ImageView
         android:id="@+id/add"
         android:layout_width="32dp"
