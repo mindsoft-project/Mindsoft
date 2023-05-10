@@ -1,6 +1,7 @@
 package com.mindsoft.ui.fragments;
 
 import android.Manifest;
+import android.app.AlertDialog;
 import android.app.NotificationManager;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -72,6 +73,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.stream.Collectors;
 
 public class CourseSessionFragment extends Fragment {
@@ -308,7 +311,16 @@ public class CourseSessionFragment extends Fragment {
                                 if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
                                     ActivityCompat.requestPermissions(requireActivity(), new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_WRITE_STORAGE);
                                 } else {
-                                    export(course, session);
+                                    AlertDialog dialog = new AlertDialog.Builder(requireActivity()).create();
+                                    dialog.setTitle("Export attendance sheet");
+                                    dialog.setMessage("Choose how you want the sheet be like.");
+                                    dialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Separated sections", (dialog1, which) -> {
+                                        exportSections(course, session);
+                                    });
+                                    dialog.setButton(AlertDialog.BUTTON_POSITIVE, "All in one", (dialog1, which) -> {
+                                        export(course, session);
+                                    });
+                                    dialog.show();
                                 }
                             });
                         }
@@ -338,7 +350,7 @@ public class CourseSessionFragment extends Fragment {
         }
     }
 
-    private void export(Course course, CourseSession session) {
+    private void exportSections(Course course, CourseSession session) {
         XSSFWorkbook workbook = new XSSFWorkbook();
         Map<Integer, Map<String, Boolean>> data = new HashMap<>();
 
@@ -378,7 +390,6 @@ public class CourseSessionFragment extends Fragment {
         detailStyle.setBorderRight(BorderStyle.MEDIUM);
         detailStyle.setBorderLeft(BorderStyle.MEDIUM);
 
-
         FirebaseDatabase db = FirebaseDatabase.getInstance();
         for (StudentAttended student : adapter.getStudents()) {
             if (!data.containsKey(student.getSection())) {
@@ -387,7 +398,6 @@ public class CourseSessionFragment extends Fragment {
             data.get(student.getSection()).put(student.getFullName(), attendance.getAttended().getOrDefault(student.getId(), false));
         }
 
-        System.out.println(data);
 
         Map<Integer, XSSFSheet> sheets = new HashMap<>();
         for (Integer section : data.keySet()) {
@@ -460,6 +470,128 @@ public class CourseSessionFragment extends Fragment {
         }
     }
 
+    private void export(Course course, CourseSession session) {
+        XSSFWorkbook workbook = new XSSFWorkbook();
+        Map<String, Boolean> data = new HashMap<>();
+
+        XSSFCellStyle bordered = workbook.createCellStyle();
+        bordered.setBorderBottom(BorderStyle.MEDIUM);
+        bordered.setBorderTop(BorderStyle.MEDIUM);
+        bordered.setBorderRight(BorderStyle.MEDIUM);
+        bordered.setBorderLeft(BorderStyle.MEDIUM);
+
+        bordered.setAlignment(HorizontalAlignment.LEFT);
+        bordered.setVerticalAlignment(VerticalAlignment.CENTER);
+
+        XSSFFont font = workbook.createFont();
+        font.setBold(true);
+
+        XSSFCellStyle headStyle = workbook.createCellStyle();
+        headStyle.setFont(font);
+
+        headStyle.setBorderBottom(BorderStyle.MEDIUM);
+        headStyle.setBorderTop(BorderStyle.MEDIUM);
+        headStyle.setBorderRight(BorderStyle.MEDIUM);
+        headStyle.setBorderLeft(BorderStyle.MEDIUM);
+
+        XSSFCellStyle detailsHeadStyle = workbook.createCellStyle();
+        detailsHeadStyle.setFont(font);
+
+        detailsHeadStyle.setBorderBottom(BorderStyle.MEDIUM);
+        detailsHeadStyle.setBorderTop(BorderStyle.MEDIUM);
+        detailsHeadStyle.setBorderRight(BorderStyle.MEDIUM);
+        detailsHeadStyle.setBorderLeft(BorderStyle.MEDIUM);
+
+        XSSFCellStyle detailStyle = workbook.createCellStyle();
+        detailStyle.setAlignment(HorizontalAlignment.CENTER);
+        detailStyle.setVerticalAlignment(VerticalAlignment.CENTER);
+        detailStyle.setBorderBottom(BorderStyle.MEDIUM);
+        detailStyle.setBorderTop(BorderStyle.MEDIUM);
+        detailStyle.setBorderRight(BorderStyle.MEDIUM);
+        detailStyle.setBorderLeft(BorderStyle.MEDIUM);
+
+        FirebaseDatabase db = FirebaseDatabase.getInstance();
+        for (StudentAttended student : adapter.getStudents()) {
+            data.put(student.getFullName(), attendance.getAttended().getOrDefault(student.getId(), false));
+        }
+
+
+        XSSFSheet sheet = workbook.createSheet();
+        XSSFRow detailsHeading = sheet.createRow(0);
+
+        XSSFCell instructorNameCol = detailsHeading.createCell(0);
+
+        XSSFCell courseCol = detailsHeading.createCell(1);
+        XSSFCell dateCol = detailsHeading.createCell(2);
+        instructorNameCol.setCellStyle(detailsHeadStyle);
+        instructorNameCol.setCellValue("Instructor");
+        dateCol.setCellValue("Date");
+        dateCol.setCellStyle(detailsHeadStyle);
+        courseCol.setCellValue("Course");
+        courseCol.setCellStyle(detailsHeadStyle);
+
+        XSSFRow details = sheet.createRow(1);
+        sheet.setDefaultColumnWidth(30);
+        XSSFCell instructorCell = details.createCell(0);
+        XSSFCell courseCell = details.createCell(1);
+        XSSFCell dateCell = details.createCell(2);
+        instructorCell.setCellValue(this.instructor.getFullName());
+        courseCell.setCellValue(course.getName());
+        dateCell.setCellValue(new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.US).format(session.getDate().toDate()));
+
+        instructorCell.setCellStyle(detailStyle);
+        courseCell.setCellStyle(detailStyle);
+        dateCell.setCellStyle(detailStyle);
+
+        XSSFRow heading = sheet.createRow(3);
+        XSSFCell num = heading.createCell(0);
+        XSSFCell name = heading.createCell(1);
+        XSSFCell attended = heading.createCell(2);
+        XSSFCell section = heading.createCell(3);
+        num.setCellValue("#");
+        name.setCellValue("Name");
+        attended.setCellValue("Attended");
+        section.setCellValue("Section");
+        num.setCellStyle(headStyle);
+        name.setCellStyle(headStyle);
+        attended.setCellStyle(headStyle);
+        section.setCellStyle(headStyle);
+
+        int i = 1;
+        for (StudentAttended student : adapter.getStudents()) {
+            XSSFRow studentRow = sheet.createRow(3 + i);
+            XSSFCell n = studentRow.createCell(0);
+            n.setCellValue(i);
+            n.setCellStyle(bordered);
+            XSSFCell stdName = studentRow.createCell(1);
+            stdName.setCellValue(student.getFullName());
+            stdName.setCellStyle(bordered);
+            XSSFCell stdAttended = studentRow.createCell(2);
+            stdAttended.setCellValue(student.isAttended() ? "T" : "F");
+            stdAttended.setCellStyle(bordered);
+            XSSFCell sect = studentRow.createCell(3);
+            sect.setCellValue(student.getSection());
+            sect.setCellStyle(bordered);
+            i++;
+
+        }
+
+        File downloadsDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+        File file = new File(downloadsDir, String.format("%s - %s - All.xlsx", course.getName(), session.getTitle()));
+        try {
+            // Write some data to the file
+            FileOutputStream outputStream = new FileOutputStream(file);
+            workbook.write(outputStream);
+            // Notify the media scanner to add the file to the Downloads directory
+            MediaScannerConnection.scanFile(requireContext(), new String[]{file.getPath()}, null, null);
+
+
+            Toast.makeText(requireActivity(), "File saved in Downloads directory", Toast.LENGTH_SHORT).show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     private void attend(Course course, CourseSession session) {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
 
@@ -501,7 +633,15 @@ public class CourseSessionFragment extends Fragment {
                                         binding.attend.setVisibility(View.GONE);
                                     }
                                 });
-                                context.finish();
+
+                                Timer timer = new Timer();
+                                timer.schedule(new TimerTask() {
+                                    @Override
+                                    public void run() {
+                                        context.finish();
+                                    }
+                                }, 3000);
+
                             }
                         };
                         startActivity(intent);
