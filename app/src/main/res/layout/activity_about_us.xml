@@ -39,8 +39,8 @@
         android:fontFamily="serif"
 
         android:text="
-MindSoft: It is the name of the application and also the name of the team designing and developing this application. It is also a project under the supervision of the New Cairo Technological University.\n\nWe extend our sincere thanks and  appreciation to \nDr: Ghada Maher
-\n Eng: Rana Muhammad\n\nTeam Members:\n-Eng: Mostafa Morsy Mohamed \n-Eng: Abdul Rahman Ragab Kamal \n-Eng: Mazen Tarek Saad \n-Eng: Omar Ashraf Mohammed "
+MindSoft: It is the name of the application and also the name of the team designing and developing this application. It is also a project under the supervision of the New Cairo Technological University.\n\nWe extend our sincere thanks and  appreciation to \nDr: Ghada Maher.
+\nEng: Rana Muhammad.\n\nTeam Members:\n-Eng: Mostafa Morsy Mohamed \n-Eng: Abdul Rahman Ragab Kamal \n-Eng: Mazen Tarek Saad \n-Eng: Omar Ashraf Mohammed "
         android:textColor="@color/textBackground"
         android:textSize="18sp"
 
