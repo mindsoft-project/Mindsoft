@@ -3,6 +3,8 @@ package com.mindsoft.ui.fragments;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.view.LayoutInflater;
@@ -62,6 +64,26 @@ public class FirstPageSignup extends Fragment {
                 binding.password.setSelection(binding.password.getText().length());
             }
         });
+         TextWatcher passwordTextWatcher = new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                String password = binding.password.getText().toString().trim();
+                if (password.length() != 8) {
+                    binding.password.setError("Password must be 8 characters long");
+                } else {
+                    binding.password.setError(null);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+            }
+        };
+        binding.password.addTextChangedListener(passwordTextWatcher);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this.getContext(), R.array.user_type, android.R.layout.simple_spinner_dropdown_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
