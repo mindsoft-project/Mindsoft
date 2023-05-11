@@ -72,7 +72,7 @@ public class FirstPageSignup extends Fragment {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 String password = binding.password.getText().toString().trim();
-                if (password.length() != 8) {
+                if (password.length() > 8) {
                     binding.password.setError("Password must be 8 characters long");
                 } else {
                     binding.password.setError(null);
