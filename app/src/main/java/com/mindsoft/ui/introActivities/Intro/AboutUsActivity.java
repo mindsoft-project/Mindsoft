@@ -5,6 +5,8 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import android.widget.Button;
 import com.mindsoft.R;
+import com.mindsoft.ui.activity.CreateAccountActivity;
+import com.mindsoft.ui.activity.LoginActivity;
 
 public class AboutUsActivity extends AppCompatActivity {
     @Override
@@ -18,5 +20,11 @@ public class AboutUsActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         });
+    }
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(AboutUsActivity.this, PrivacyAndPolicyActivity.class);
+        startActivity(intent);
+        super.onBackPressed();
     }
 }

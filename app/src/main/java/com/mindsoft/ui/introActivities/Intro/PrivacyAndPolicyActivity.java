@@ -14,6 +14,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 import com.mindsoft.R;
+import com.mindsoft.ui.activity.CreateAccountActivity;
+import com.mindsoft.ui.activity.LoginActivity;
 
 public class PrivacyAndPolicyActivity extends AppCompatActivity {
     @Override
@@ -34,5 +36,11 @@ public class PrivacyAndPolicyActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         });
+    }
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(PrivacyAndPolicyActivity.this, WelcomeActivity.class);
+        startActivity(intent);
+        super.onBackPressed();
     }
 }

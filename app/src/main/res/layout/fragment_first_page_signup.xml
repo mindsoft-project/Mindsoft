@@ -193,7 +193,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
                 android:orientation="horizontal"
-                android:layout_marginTop="30dp">
+               android:layout_marginTop="10dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -220,9 +220,9 @@
                 android:fontFamily="@font/font_almarai_regular"
                 android:stateListAnimator="@null"
                 android:text="Submit"
-                android:layout_marginTop="30dp"
                 android:textColor="@color/on_dark"
-                android:layout_marginBottom="50dp"/>
+                android:layout_marginBottom="100dp"
+                />
 
         </LinearLayout>
     </ScrollView>

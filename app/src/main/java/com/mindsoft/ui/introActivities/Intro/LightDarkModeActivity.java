@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatDelegate;
 import android.widget.Button;
 import android.widget.Switch;
 import com.mindsoft.R;
+import com.mindsoft.ui.activity.CreateAccountActivity;
 import com.mindsoft.ui.activity.LoginActivity;
 
 public class LightDarkModeActivity extends AppCompatActivity {
@@ -32,6 +33,12 @@ public class LightDarkModeActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         });
+    }
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(LightDarkModeActivity.this, AboutUsActivity.class);
+        startActivity(intent);
+        super.onBackPressed();
     }
 }
 

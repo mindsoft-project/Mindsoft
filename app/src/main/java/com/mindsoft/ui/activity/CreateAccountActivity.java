@@ -1,5 +1,6 @@
 package com.mindsoft.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,5 +23,12 @@ public class CreateAccountActivity extends AppCompatActivity {
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.nav_host_fragment_container);
         NavController navController = navHostFragment.getNavController();
+
+    }
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(CreateAccountActivity.this, LoginActivity.class);
+        startActivity(intent);
+        super.onBackPressed();
     }
 }
