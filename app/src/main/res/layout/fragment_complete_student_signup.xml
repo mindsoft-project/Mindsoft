@@ -138,18 +138,19 @@
         android:layout_marginTop="0dp"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="30dp"></ImageView>
-        <Button
-            android:id="@+id/next"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/rec_btn"
-            android:textStyle="bold"
-            android:fontFamily="@font/font_almarai_regular"
-            android:stateListAnimator="@null"
-            android:text="Next"
-            android:textColor="@color/on_dark"
-            android:layout_marginTop="30dp"
-            android:layout_marginStart="20dp"/>
+
+    <Button
+        android:id="@+id/next"
+        android:layout_width="238dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/rec_btn"
+        android:fontFamily="@font/font_almarai_regular"
+        android:stateListAnimator="@null"
+        android:text="Recognize Your Face"
+        android:textColor="@color/on_dark"
+        android:textStyle="bold" />
 
 
 
