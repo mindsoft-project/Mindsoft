@@ -4,6 +4,8 @@
     <string name="student_title">%1$s at %2$s, %3$s Year</string>
 
     <string name="course_professor">By Dr. $1</string>
+    <string name="admin_validation">Your registration request has been sent to the Administrators, and waiting to approve your request.\n\nThis should not take more than 3 days, if you didn\'t get response after 3 days please contact an Administrator at your University.</string>
+    <string name="email_verification">We\'ve sent you an verification email, check it out to verify yourself, if you dont see any email check spam section or click on Resend button to resend email verification.</string>
     <string-array name="user_type">
         <item>Student</item>
         <item>Teaching Assistant</item>

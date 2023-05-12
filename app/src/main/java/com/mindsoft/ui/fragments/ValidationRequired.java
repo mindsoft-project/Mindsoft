@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,6 +13,8 @@ import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.mindsoft.R;
 import com.mindsoft.data.model.User;
@@ -30,15 +33,37 @@ public class ValidationRequired extends Fragment implements SwipeRefreshLayout.O
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         mNavController = NavHostFragment.findNavController(this);
 
-        if (User.current != null) {
-            User.current.getReference().get().addOnSuccessListener(command -> {
-                User user = command.toObject(User.class);
-                assert user != null;
+        FirebaseUser mUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (!mUser.isEmailVerified()) {
+            binding.message.setText(R.string.email_verification);
+            binding.resend.setVisibility(View.VISIBLE);
+            binding.resend.setOnClickListener(v -> {
+                binding.resend.setAlpha(0.5f);
+                binding.resend.setEnabled(false);
 
-                if (user.isValidated()) {
-                    mNavController.navigate(R.id.action_validation_required_to_main_page);
-                }
+                mUser.sendEmailVerification().addOnCompleteListener(task -> {
+                            if (task.isSuccessful()) {
+                                Toast.makeText(requireContext(), "Email Sent", Toast.LENGTH_SHORT).show();
+
+                            } else {
+                                Toast.makeText(requireContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                binding.resend.setAlpha(0.5f);
+                                binding.resend.setEnabled(false);
+                            }
+                        }
+                );
             });
+        } else {
+            if (User.current != null) {
+                User.current.getReference().get().addOnSuccessListener(command -> {
+                    User user = command.toObject(User.class);
+                    assert user != null;
+
+                    if (user.isValidated()) {
+                        mNavController.navigate(R.id.action_validation_required_to_main_page);
+                    }
+                });
+            }
         }
 
         return binding.getRoot();
@@ -46,16 +71,37 @@ public class ValidationRequired extends Fragment implements SwipeRefreshLayout.O
 
     @Override
     public void onRefresh() {
-        if (User.current != null) {
-            User.current.getReference().get().addOnSuccessListener(command -> {
-                User user = command.toObject(User.class);
-                binding.getRoot().setRefreshing(false);
-                assert user != null;
+        FirebaseUser mUser = FirebaseAuth.getInstance().getCurrentUser();
+        if (!mUser.isEmailVerified()) {
+            binding.message.setText(R.string.email_verification);
+            binding.resend.setVisibility(View.VISIBLE);
+            binding.resend.setOnClickListener(v -> {
+                binding.resend.setAlpha(0.5f);
+                binding.resend.setEnabled(false);
 
-                if (user.isValidated()) {
-                    mNavController.navigate(R.id.action_validation_required_to_main_page);
-                }
+                mUser.sendEmailVerification().addOnCompleteListener(task -> {
+                            if (task.isSuccessful()) {
+                                Toast.makeText(requireContext(), "Email Sent", Toast.LENGTH_SHORT).show();
+
+                            } else {
+                                Toast.makeText(requireContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                binding.resend.setAlpha(0.5f);
+                                binding.resend.setEnabled(false);
+                            }
+                        }
+                );
             });
+        } else {
+            if (User.current != null) {
+                User.current.getReference().get().addOnSuccessListener(command -> {
+                    User user = command.toObject(User.class);
+                    assert user != null;
+
+                    if (user.isValidated()) {
+                        mNavController.navigate(R.id.action_validation_required_to_main_page);
+                    }
+                });
+            }
         }
     }
 }

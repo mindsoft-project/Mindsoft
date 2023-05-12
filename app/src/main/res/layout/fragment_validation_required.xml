@@ -2,36 +2,52 @@
 <androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp"
-    android:background="@color/baseBackground">
+    android:background="@color/baseBackground"
+    android:padding="20dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@color/baseBackground">
+        android:background="@color/baseBackground"
+        android:orientation="vertical">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/almarai_extra_bold"
             android:text="Validation Pending"
-            android:textSize="25sp"
-            android:textColor="@color/textBackground"/>
+            android:textColor="@color/textBackground"
+            android:textSize="25sp" />
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:layout_marginBottom="20dp"
             android:src="@drawable/label_shape"
-            android:tint="@color/Gold"/>
+            android:tint="@color/Gold" />
 
 
         <TextView
+            android:id="@+id/message"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/almarai_light"
-            android:text="Your registration request has been sent to the Administrators, and waiting to approve your request.\n\nThis should not take more than 3 days, if you didn't get response after 3 days please contact an Administrator at your University."
-            android:textSize="16sp"
-            android:textColor="@color/textBackground"/>
+            android:text="@string/email_verification"
+            android:textColor="@color/textBackground"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/resend"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@drawable/rec_btn"
+            android:fontFamily="@font/font_almarai_regular"
+            android:stateListAnimator="@null"
+            android:text="Resend"
+            android:textColor="@color/logoInversColor"
+
+            android:textStyle="bold"
+            android:visibility="gone" />
+
     </LinearLayout>
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
