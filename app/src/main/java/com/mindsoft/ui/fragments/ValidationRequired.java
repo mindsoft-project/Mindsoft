@@ -61,6 +61,8 @@ public class ValidationRequired extends Fragment implements SwipeRefreshLayout.O
 
                     if (user.isValidated()) {
                         mNavController.navigate(R.id.action_validation_required_to_main_page);
+                    } else {
+                        binding.message.setText(R.string.admin_validation);
                     }
                 });
             }
@@ -99,6 +101,8 @@ public class ValidationRequired extends Fragment implements SwipeRefreshLayout.O
 
                     if (user.isValidated()) {
                         mNavController.navigate(R.id.action_validation_required_to_main_page);
+                    } else {
+                        binding.message.setText(R.string.admin_validation);
                     }
                 });
             }
