@@ -60,6 +60,11 @@ public class LoginActivity extends AppCompatActivity {
                 binding.password.setSelection(binding.password.getText().length());
             }
         });
+        binding.forgetPassword.setOnClickListener(v -> {
+            Intent intent = new Intent(this, ResetPasswordActivity.class);
+            startActivity(intent);
+        });
+
         binding.submit.setOnClickListener(v -> {
             String email = binding.email.getText().toString();
             String password = binding.password.getText().toString();
