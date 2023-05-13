@@ -10,8 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/success"
-        android:paddingEnd="20dp"
-        >
+        android:paddingEnd="20dp">
 
         <ImageView
             android:id="@+id/accept_icon"
@@ -50,6 +49,7 @@
             android:layout_height="32dp"
             android:layout_gravity="center"
             android:background="@drawable/rounded_image_view"
+            android:scaleType="centerCrop"
             android:src="@drawable/user"
             app:shapeAppearanceOverlay="@style/roundedImageViewRounded" />
 
@@ -65,18 +65,18 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/almarai_regular"
                 android:gravity="right"
-                android:textColor="@color/textBackground"
                 android:text="عمر اشرف محمد عبداللطيف"
+                android:textColor="@color/textBackground"
                 android:textSize="16sp" />
 
             <TextView
-                android:textColor="@color/textBackground"
                 android:id="@+id/title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/almarai_regular"
                 android:gravity="right"
                 android:text="Student at ICT"
+                android:textColor="@color/textBackground"
                 android:textSize="14sp" />
         </LinearLayout>
     </LinearLayout>

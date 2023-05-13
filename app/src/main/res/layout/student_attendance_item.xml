@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/baseBackground"
     android:orientation="horizontal"
-    android:padding="10dp"
-    android:background="@color/baseBackground">
+    android:padding="10dp">
 
 
     <com.google.android.material.imageview.ShapeableImageView
@@ -15,6 +15,7 @@
         android:layout_gravity="start"
         android:layout_marginEnd="10dp"
         android:background="@drawable/rounded_image_view"
+        android:scaleType="centerCrop"
         android:src="@drawable/user"
         app:shapeAppearanceOverlay="@style/roundedImageViewRounded" />
 
