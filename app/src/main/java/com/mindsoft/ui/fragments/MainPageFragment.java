@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 
+import com.google.android.material.imageview.ShapeableImageView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
@@ -27,6 +28,7 @@ import com.mindsoft.databinding.FragmentMainPageBinding;
 import com.mindsoft.ui.activity.DetectorActivity;
 import com.mindsoft.ui.activity.HomeActivity;
 import com.mindsoft.ui.activity.LoginActivity;
+import com.mindsoft.utils.StringUtils;
 
 public class MainPageFragment extends Fragment {
 
@@ -86,12 +88,18 @@ public class MainPageFragment extends Fragment {
 
                                         if (Student.current == null) return;
 
-
                                         if (User.current.getTitle() == 0) {
                                             String roleTitle = getString(User.current.getPreferredTitle());
                                             String dept = getString(Student.current.getDepartment().getResourceId());
                                             String year = Student.current.getYear() == 1 ? "1st" : Student.current.getYear() == 2 ? "2nd" : Student.current.getYear() == 3 ? "3rd" : Student.current.getYear() == 4 ? "4th" : "Graduation";
                                             roleView.setText(getString(R.string.student_title, roleTitle, dept, year));
+                                        }
+
+                                        if (!Student.current.getPictureUrl().isEmpty()) {
+                                            Student.current.loadImage(bitmap -> {
+                                                ShapeableImageView profilePicture = activity.mNavigationView.getHeaderView(0).findViewById(R.id.profilePhoto);
+                                                profilePicture.setImageBitmap(bitmap);
+                                            });
                                         }
 
                                         boolean missingSection = Student.current.getSection() == 0;

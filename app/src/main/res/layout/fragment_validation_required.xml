@@ -40,6 +40,7 @@
             android:id="@+id/resend"
             android:layout_width="match_parent"
             android:layout_height="45dp"
+            android:layout_marginTop="30dp"
             android:background="@drawable/rec_btn"
             android:fontFamily="@font/font_almarai_regular"
             android:stateListAnimator="@null"

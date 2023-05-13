@@ -17,6 +17,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.mindsoft.R;
+import com.mindsoft.constants.Constants;
 import com.mindsoft.data.model.User;
 import com.mindsoft.databinding.FragmentValidationRequiredBinding;
 
@@ -34,7 +35,7 @@ public class ValidationRequired extends Fragment implements SwipeRefreshLayout.O
         mNavController = NavHostFragment.findNavController(this);
 
         FirebaseUser mUser = FirebaseAuth.getInstance().getCurrentUser();
-        if (!mUser.isEmailVerified()) {
+        if (!mUser.isEmailVerified() && Constants.EMAIL_VERIFICATION) {
             binding.message.setText(R.string.email_verification);
             binding.resend.setVisibility(View.VISIBLE);
             binding.resend.setOnClickListener(v -> {
@@ -74,7 +75,7 @@ public class ValidationRequired extends Fragment implements SwipeRefreshLayout.O
     @Override
     public void onRefresh() {
         FirebaseUser mUser = FirebaseAuth.getInstance().getCurrentUser();
-        if (!mUser.isEmailVerified()) {
+        if (!mUser.isEmailVerified() && Constants.EMAIL_VERIFICATION) {
             binding.message.setText(R.string.email_verification);
             binding.resend.setVisibility(View.VISIBLE);
             binding.resend.setOnClickListener(v -> {

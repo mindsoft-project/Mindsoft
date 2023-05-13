@@ -9,8 +9,10 @@ import android.widget.PopupMenu;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.mindsoft.R;
 import com.mindsoft.data.model.Course;
+import com.mindsoft.data.model.Student;
 import com.mindsoft.data.model.StudentAttended;
 import com.mindsoft.data.model.User;
 import com.mindsoft.databinding.StudentAttendanceItemBinding;
@@ -86,6 +88,14 @@ public class StudentAttendanceAdapter extends RecyclerView.Adapter<StudentAttend
         public void bind(StudentAttended student) {
             binding.name.setText(student.getFullName());
             setAttending(student.isAttended());
+
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
+            db.collection(Student.COLLECTION).document(student.getId()).get().addOnSuccessListener(command -> {
+                Student std = command.toObject(Student.class);
+                if (std != null) {
+                    std.loadImage(binding.profilePhoto::setImageBitmap);
+                }
+            });
         }
 
         public void setAttending(boolean attended) {

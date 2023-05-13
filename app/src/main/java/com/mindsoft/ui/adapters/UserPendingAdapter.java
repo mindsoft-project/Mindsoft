@@ -9,7 +9,10 @@ import android.widget.PopupMenu;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.mindsoft.R;
+import com.mindsoft.data.model.Student;
 import com.mindsoft.data.model.User;
 import com.mindsoft.databinding.UserPendingItemBinding;
 
@@ -79,6 +82,14 @@ public class UserPendingAdapter extends RecyclerView.Adapter<UserPendingAdapter.
             } else {
                 binding.title.setText(user.getPreferredTitle());
             }
+
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
+            db.collection(Student.COLLECTION).document(user.getId()).get().addOnSuccessListener(command -> {
+                Student student = command.toObject(Student.class);
+                if (student != null) {
+                    student.loadImage(binding.profilePhoto::setImageBitmap);
+                }
+            });
 
         }
     }

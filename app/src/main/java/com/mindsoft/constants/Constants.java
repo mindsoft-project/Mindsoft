@@ -8,4 +8,7 @@ public class Constants {
 
     public static final Mode MODE = Mode.DEVELOPMENT;
 
+    public static final boolean ACCOUNT_CREATION = false;
+
+    public static final boolean EMAIL_VERIFICATION = false;
 }

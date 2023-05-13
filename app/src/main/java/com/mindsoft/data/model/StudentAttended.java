@@ -6,7 +6,7 @@ public class StudentAttended {
     private String fullName;
 
     private boolean attended;
-
+    
     private int section;
 
     public boolean isAttended() {

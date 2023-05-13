@@ -13,6 +13,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -117,6 +118,7 @@ public class SystemRepository {
                     Element sem = doc.getElementById("ctl00_lblsem");
                     Element program = doc.getElementById("ctl00_lblasnode");
                     Element mail = doc.getElementById("ctl00_lblStudMali");
+                    Element studImage = doc.getElementById("ctl00_imgedstud");
 
                     if (studentName != null && phase != null && sem != null && program != null && mail != null) {
                         String[] name = studentName.text().replace("الاسم:", "").trim().split(" ");
@@ -135,7 +137,12 @@ public class SystemRepository {
                         info.setLastName(name[1] + " " + name[2]);
                         info.setSemester(2 * year - semester);
                         info.setEmail(_mail);
-                        System.out.println(_dep);
+
+                        if (studImage != null) {
+                            info.setProfilePicture(studImage.attr("src"));
+                            info.setProfilePicture(Paths.get(doc.baseUri()).getParent().resolve(info.getProfilePicture()).normalize().toString());
+                        }
+
                         if (departments.containsKey(_dep)) {
                             info.setDepartmentID(departments.get(_dep));
                         }

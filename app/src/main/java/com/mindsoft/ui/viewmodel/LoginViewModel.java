@@ -63,6 +63,7 @@ public class LoginViewModel extends ViewModel {
                             student.setDepartment(Department.departments.get(studentInfo.getDepartmentID()));
                             student.setSemester(studentInfo.getSemester());
                             student.setStudentCode(studentInfo.getStudentCode());
+                            student.setPictureUrl(studentInfo.getProfilePicture());
 
                             mAuth.createUserWithEmailAndPassword(user.getEmail(), password).addOnCompleteListener(task -> {
                                 if (task.isSuccessful()) {

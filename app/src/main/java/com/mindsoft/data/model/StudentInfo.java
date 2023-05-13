@@ -16,6 +16,8 @@ public class StudentInfo {
 
     private int semester;
 
+    private String profilePicture;
+
     public String getStudentCode() {
         return studentCode;
     }
@@ -83,5 +85,13 @@ public class StudentInfo {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getProfilePicture() {
+        return profilePicture;
+    }
+
+    public void setProfilePicture(String profilePicture) {
+        this.profilePicture = profilePicture;
     }
 }

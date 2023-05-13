@@ -16,6 +16,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.mindsoft.R;
+import com.mindsoft.constants.Constants;
 import com.mindsoft.data.model.User;
 import com.mindsoft.databinding.ActivityLoginBinding;
 import com.mindsoft.ui.viewmodel.LoginViewModel;
@@ -33,6 +34,10 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         viewModel = new ViewModelProvider(this).get(LoginViewModel.class);
+
+        if (!Constants.ACCOUNT_CREATION) {
+            binding.create.setVisibility(View.GONE);
+        }
 
         binding.create.setOnClickListener(v -> {
             Intent intent = new Intent(LoginActivity.this, CreateAccountActivity.class);
