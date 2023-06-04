@@ -5,81 +5,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.activity.LoginActivity"
-    android:background="@color/baseBackground">
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="413dp"
-
-        android:layout_height="421dp"
-        android:src="@drawable/back"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></ImageView>
-
-    <ImageView
-        android:id="@+id/shape"
-        android:layout_width="413dp"
-
-        android:layout_height="421dp"
-        android:src="@drawable/back"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginBottom="10dp"
-        app:layout_constraintBottom_toBottomOf="@id/imageView"></ImageView>
+    android:background="@drawable/shape_background">
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="108dp"
-        android:layout_height="108dp"
-        android:layout_marginTop="5dp"
-        android:src="@drawable/ic_logo"
-        android:tint="@color/logoInversColor"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="28dp"
+        android:src="@drawable/ncct"
 
-    <TextView
-        android:id="@+id/logoTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Mindsoft"
-        android:textSize="30sp"
-        android:layout_marginTop="85dp"
-        android:textColor="@color/logoInversColor"
-        android:textStyle="bold"
-        android:fontFamily="@font/almarai_extra_bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.046"
         app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/anim"
-        android:layout_width="134dp"
-        android:layout_height="98dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
-        app:layout_constraintHorizontal_bias="0.1"
-        app:layout_constraintStart_toEndOf="@+id/logo"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
     <ScrollView
         android:id="@+id/scroll"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="445dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/custom_edit_text_cut"
+        android:padding="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toBottomOf="@+id/logoTitle2"
+        app:layout_constraintVertical_bias="0.113">
 
         <LinearLayout
             android:id="@+id/loginForm"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
             android:padding="5dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -90,24 +47,13 @@
             app:layout_constraintVertical_bias="0.596">
 
             <TextView
-                android:id="@+id/pageTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Login"
-                android:textColor="@color/logoInversColor"
-                android:textSize="30dp"
-                android:layout_marginStart="10dp"
-                android:textStyle="bold"></TextView>
-
-            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="120dp"
 
                 android:layout_marginBottom="5dp"
-                android:fontFamily="@font/font_almarai_light"
+                android:fontFamily="serif"
                 android:text=" Email Address  or  Student code"
-                android:textColor="@color/textBackground"
+                android:textColor="@color/AliceBlue"
                 android:textSize="18sp"
 
                 android:textStyle="bold"></TextView>
@@ -118,84 +64,84 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
                 android:autofilledHighlight="@null"
-                android:background="@drawable/custom_edit_text_cut"
+                android:background="@drawable/custom_edit_text_cut_2"
                 android:drawableLeft="@drawable/ic_baseline_person_24"
                 android:fontFamily="@font/font_almarai_light"
                 android:hint="  ex@example.com /  20220200"
                 android:inputType="textEmailAddress"
                 android:padding="10dp"
-                android:textColor="@color/textBackground"
+                android:textColorHint="@color/AliceBlue"
+                android:textColor="@color/AliceBlue"
                 android:textSize="15sp"></EditText>
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
+
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="0dp"
                 android:layout_marginBottom="5dp"
-                android:fontFamily="@font/font_almarai_light"
+                android:fontFamily="serif"
                 android:text=" Password"
-                android:textColor="@color/textBackground"
+                android:textColor="@color/AliceBlue"
                 android:textSize="18sp"
+
                 android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/showPass"
-        android:layout_width="wrap_content"
-        android:layout_height="25dp"
-        android:layout_marginStart="130dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="5dp"
-        android:background="@drawable/rec_btn"
-        android:backgroundTint="@color/Gold"
-        android:drawableRight="@drawable/ic_baseline_remove_red_eye_24"
-        android:fontFamily="@font/font_almarai_light"
-        android:padding="1dp"
-        android:text="   Show Password__ "
-        android:textColor="@color/logoInversColor"
-        android:textSize="15sp"
-        android:textStyle="bold" />
-</LinearLayout>
 
             <EditText
                 android:id="@+id/password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
-                android:background="@drawable/custom_edit_text_cut"
+                android:background="@drawable/custom_edit_text_cut_2"
                 android:drawableLeft="@drawable/ic_baseline_lock_person_24"
                 android:fontFamily="@font/font_almarai_light"
                 android:hint=" P@ssw0rd"
                 android:inputType="textPassword"
                 android:padding="10dp"
-                android:textColor="@color/textBackground"
+                android:textColorHint="@color/AliceBlue"
+                android:textColor="@color/AliceBlue"
                 android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/showPass"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/rec_btn"
+                android:drawableRight="@drawable/ic_baseline_remove_red_eye_24"
+                android:fontFamily="@font/font_almarai_regular"
+                android:padding="1dp"
+                android:backgroundTint="@color/AliceBlue"
+                android:textColor="#495BCC"
+                android:text="   Show Password__ "
+
+                android:textSize="15sp"
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/submit"
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:background="@drawable/rec_btn"
+                android:layout_height="wrap_content"
                 android:fontFamily="@font/font_almarai_regular"
-                android:stateListAnimator="@null"
                 android:text="Submit"
-
-                android:textColor="@color/logoInversColor"
-                android:textStyle="bold" />
+                android:backgroundTint="@color/AliceBlue"
+                android:textColor="#495BCC"                android:textStyle="bold"
+                app:cornerRadius="20dp" />
 
 
             <TextView
                 android:id="@+id/forgetPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="5dp"
                 android:layout_weight="1"
-                android:fontFamily="@font/font_almarai_light"
+                android:fontFamily="serif"
                 android:text="Forget my password."
                 android:textAllCaps="true"
-                android:textColor="@color/Gold"
+                android:textColor="@color/AliceBlue"
                 android:textSize="16sp"
 
                 android:textStyle="bold" />
@@ -206,12 +152,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_weight="1"
-                android:fontFamily="@font/font_almarai_light"
+                android:fontFamily="serif"
                 android:text="Find my student code"
                 android:textAllCaps="true"
-                android:textColor="#F1AD04"
+                android:textColor="@color/AliceBlue"
                 android:textSize="14sp"
                 android:textStyle="bold" />
+
+
 
             <ImageView
                 android:layout_width="match_parent"
@@ -220,20 +168,45 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
                 android:src="@drawable/label_shape"
-                android:tint="@color/Gold" />
+                android:tint="@color/AliceBlue" />
 
             <Button
                 android:id="@+id/create"
                 android:layout_width="match_parent"
-                android:layout_height="38dp"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/rec_btn"
-                android:backgroundTint="@color/Gold"
+                android:layout_height="wrap_content"
                 android:fontFamily="@font/font_almarai_regular"
-                android:stateListAnimator="@null"
                 android:text="Create account"
-                android:textColor="@color/logoInversColor"
-                android:textStyle="bold" />
+                android:backgroundTint="@color/AliceBlue"
+                android:textColor="#495BCC"                android:textStyle="bold"
+                app:cornerRadius="20dp" />
         </LinearLayout>
     </ScrollView>
+
+    <TextView
+        android:id="@+id/logoTitle2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="serif"
+        android:text="Login"
+        android:textColor="@color/AliceBlue"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_marginTop="150dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.049"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="171dp"
+        android:layout_height="170dp"
+        android:layout_marginStart="208dp"
+        android:layout_marginBottom="148dp"
+        android:tint="@color/AliceBlue"
+        app:layout_constraintBottom_toTopOf="@+id/scroll"
+        app:layout_constraintStart_toEndOf="@+id/logo"
+        app:srcCompat="@drawable/earth_shape" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

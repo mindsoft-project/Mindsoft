@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AlertDialog;
@@ -32,11 +34,15 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
+//---------------------------------------------------------------------------------------
+        Animation animation2 = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.rotate_infinite);
+        binding.imageView6.startAnimation(animation2);
         viewModel = new ViewModelProvider(this).get(LoginViewModel.class);
+        //----------------------------------------------------------------------------------
+
 
         if (!Constants.ACCOUNT_CREATION) {
-            binding.create.setVisibility(View.GONE);
+            binding.create.setVisibility(View.VISIBLE);
         }
 
         binding.create.setOnClickListener(v -> {

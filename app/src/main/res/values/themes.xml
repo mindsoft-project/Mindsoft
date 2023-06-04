@@ -2,8 +2,8 @@
     <!-- Base application theme. -->
     <style name="Theme.Mindsoft" parent="Theme.MaterialComponents.DayNight.NoActionBar">
 
-        <item name="colorPrimary">@color/Gold</item>
-        <item name="colorPrimaryVariant">@color/Goldenrod</item>
+        <item name="colorPrimary">#9E2BBC</item>
+        <item name="colorPrimaryVariant">#8D2DA6</item>
         <item name="colorOnPrimary">@color/on_light</item>
 
         <item name="colorSecondary">@color/secondary</item>
@@ -22,11 +22,10 @@
     <color name="lightBackground">@color/Snow</color>
 
     <color name="textBackground">#2C2C2C</color>
-    <color name="buttonBackground">@color/Gold</color>
-    <color name="logoColor">@color/Gold</color>
+    <color name="buttonBackground">@color/DodgerBlue</color>
+    <color name="logoColor">@color/DodgerBlue</color>
     <color name="logoInversColor">@color/Snow</color>
-
-    <color name="textGold">@color/Gold</color>
+    <color name="textGold">@color/DodgerBlue</color>
 
 
 </resources>
