@@ -2,8 +2,8 @@
     <!-- Base application theme. -->
     <style name="Theme.Mindsoft" parent="Theme.MaterialComponents.DayNight.NoActionBar">
 
-        <item name="colorPrimary">#9E2BBC</item>
-        <item name="colorPrimaryVariant">#8D2DA6</item>
+        <item name="colorPrimary">#495BCC</item>
+        <item name="colorPrimaryVariant">#495BCC</item>
         <item name="colorOnPrimary">@color/on_light</item>
 
         <item name="colorSecondary">@color/secondary</item>
@@ -26,6 +26,7 @@
     <color name="logoColor">@color/DodgerBlue</color>
     <color name="logoInversColor">@color/Snow</color>
     <color name="textGold">@color/DodgerBlue</color>
-
-
+    <color name="Alicebule_Blue">@color/AliceBlue</color>
+    <color name="Blue_Aliceblue">#495BCC</color>
+    <color name="lightBlue_Aliceblue">#B4BEFD</color>
 </resources>

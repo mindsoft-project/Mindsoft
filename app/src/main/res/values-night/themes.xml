@@ -1,8 +1,8 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <style name="Theme.Mindsoft" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/Gold</item>
-        <item name="colorPrimaryVariant">@color/Goldenrod</item>
+        <item name="colorPrimary">#495BCC</item>
+        <item name="colorPrimaryVariant">#495BCC</item>
         <item name="colorOnPrimary">@color/on_dark</item>
 
         <item name="colorSecondary">@color/secondary</item>
@@ -20,10 +20,13 @@
     <color name="baseBackground">#06091E</color>
     <color name="darkBackground">@color/Snow</color>
     <color name="lightBackground">@color/Snow</color>
-    <color name="textBackground">@color/Snow</color>
+    <color name="textBackground">@color/AliceBlue</color>
     <color name="buttonBackground">@color/Gold</color>
     <color name="logoColor">@color/white</color>
     <color name="textGold">@color/white</color>
     <color name="logoInversColor">#06091E</color>
+    <color name="Alicebule_Blue">#495BCC</color>
+    <color name="Blue_Aliceblue">@color/AliceBlue</color>
+    <color name="lightBlue_Aliceblue">@color/AliceBlue</color>
 
 </resources>
