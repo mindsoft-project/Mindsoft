@@ -57,7 +57,7 @@
                     android:layout_height="32dp"
                     android:src="@drawable/ic_baseline_add_box"
 android:visibility="gone"
-                    app:tint="@color/white" />
+                    app:tint="@color/Blue_DarkBlue" />
 
             </LinearLayout>
 
