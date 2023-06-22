@@ -120,13 +120,13 @@ android:textColor="@color/AliceBlue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/secondary"
+            android:backgroundTint="@color/AliceBlue"
             android:drawableLeft="@drawable/ic_download"
             android:drawableTint="@color/white"
             android:fontFamily="@font/almarai_light"
             android:text="Export attendance"
             android:textAllCaps="false"
-            android:textColor="@color/white"
+            android:textColor="@color/Blue_DarkBlue"
             android:visibility="gone" />
 
         <TextView

@@ -8,14 +8,14 @@
 
         <item name="colorSecondary">#7886E0</item>
         <item name="colorSecondaryVariant">#7886E0</item>
-        <item name="colorOnSecondary">@color/on_dark</item>
+        <item name="colorOnSecondary">#495BCC</item>
 
         <item name="android:textColor">@color/on_light</item>
 
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <item name="android:autofilledHighlight" tools:targetApi="O">@android:color/transparent</item>
 
-        <item name="android:windowBackground">@color/bg_light</item>
+        <item name="android:windowBackground">#495BCC</item>
     </style>
     <color name="baseBackground">@color/Snow</color>
     <color name="darkBackground">#06091E</color>

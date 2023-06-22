@@ -26,7 +26,7 @@
         android:layout_weight="1"
         android:fontFamily="@font/almarai_regular"
         android:text=""
-        android:textColor="@color/textBackground"
+        android:textColor="@color/AliceBlue"
         android:textSize="14sp" />
 
     <TextView
