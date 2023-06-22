@@ -6,8 +6,8 @@
         <item name="colorPrimaryVariant">#495BCC</item>
         <item name="colorOnPrimary">@color/on_light</item>
 
-        <item name="colorSecondary">@color/secondary</item>
-        <item name="colorSecondaryVariant">@color/secondary</item>
+        <item name="colorSecondary">#7886E0</item>
+        <item name="colorSecondaryVariant">#7886E0</item>
         <item name="colorOnSecondary">@color/on_dark</item>
 
         <item name="android:textColor">@color/on_light</item>
@@ -28,5 +28,11 @@
     <color name="textGold">@color/DodgerBlue</color>
     <color name="Alicebule_Blue">@color/AliceBlue</color>
     <color name="Blue_Aliceblue">#495BCC</color>
+    <color name="Blue_DarkBlue">#495BCC</color>
     <color name="lightBlue_Aliceblue">#B4BEFD</color>
+    <color name="Bl">#495BCC</color>
+    <color name="DarkBlue_Blue">#202339</color>
+    <color name="DBl">#202339</color>
+
+
 </resources>

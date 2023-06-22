@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="20dp"
-    android:background="@color/baseBackground"
+    android:background="@color/Blue_DarkBlue"
     >
 
     <LinearLayout
@@ -14,12 +14,15 @@
         android:orientation="horizontal">
 
         <TextView
+            android:textStyle="bold"
+
+            android:fontFamily="serif"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:fontFamily="@font/almarai_extra_bold"
             android:text="Add Course"
-            android:textColor="@color/textBackground"
+            android:textColor="@color/AliceBlue"
             android:textSize="30sp" />
     </LinearLayout>
 
@@ -27,7 +30,7 @@
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:layout_marginBottom="20dp"
-        android:tint="@color/Gold"
+        android:tint="@color/AliceBlue"
         android:src="@drawable/label_shape" />
 
     <TextView
@@ -35,11 +38,12 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/almarai_bold"
         android:text="Name"
-        android:textColor="@color/textBackground"
+        android:textColor="@color/AliceBlue"
         android:textSize="18sp" />
 
     <EditText
-        android:textColor="@color/textBackground"
+        android:textColorHint="@color/AliceBlue"
+        android:textColor="@color/AliceBlue"
         android:id="@+id/course_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -57,10 +61,11 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/almarai_bold"
         android:text="Description"
-        android:textColor="@color/textBackground"
+        android:textColor="@color/AliceBlue"
         android:textSize="18sp" />
 
     <EditText
+        android:textColorHint="@color/AliceBlue"
         android:id="@+id/course_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -69,7 +74,7 @@
         android:background="@drawable/custom_edit_text_cut_2"
         android:fontFamily="@font/font_almarai_light"
         android:gravity="top|start"
-        android:textColor="@color/textBackground"
+        android:textColor="@color/AliceBlue"
         android:hint="Programming basics with Java"
         android:inputType="textMultiLine"
         android:lines="5"
@@ -82,7 +87,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/almarai_bold"
         android:text="Departments"
-        android:textColor="@color/textBackground"
+        android:textColor="@color/AliceBlue"
         android:textSize="18sp" />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -92,14 +97,15 @@
         android:layout_marginBottom="10dp"
         android:orientation="vertical" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
+        app:cornerRadius="20dp"
         android:id="@+id/add"
+        android:backgroundTint="@color/AliceBlue"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-android:background="@drawable/rec_btn"
         android:textStyle="bold"
         android:fontFamily="@font/font_almarai_regular"
         android:stateListAnimator="@null"
         android:text="Add"
-        android:textColor="@color/on_dark" />
+        android:textColor="@color/Blue_DarkBlue" />
 </LinearLayout>

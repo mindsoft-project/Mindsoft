@@ -5,7 +5,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:background="@color/baseBackground"
+        android:background="@color/AliceBlue"
         android:gravity="bottom"
         android:orientation="vertical"
         android:padding="16dp">
@@ -30,10 +30,11 @@
             android:fontFamily="@font/almarai_bold"
             android:gravity="center"
             android:text="Display Name"
-            android:textColor="@color/textGold"
+            android:textColor="@color/Blue_DarkBlue"
             android:textSize="16sp" />
 
         <TextView
+            android:textColor="@color/black"
             android:id="@+id/role"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -49,6 +50,6 @@
             android:layout_width="match_parent"
             android:layout_height="3dp"
             android:src="@drawable/label_shape"
-            android:tint="@color/Gold" />
+            android:tint="@color/AliceBlue" />
     </LinearLayout>
 </layout>

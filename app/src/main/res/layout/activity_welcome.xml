@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backg"
+    android:background="@drawable/shape_background_split_tow_colors"
     tools:context=".ui.introActivities.Intro.WelcomeActivity">
 <ScrollView
     android:layout_width="match_parent"
@@ -18,56 +18,69 @@
         android:id="@+id/sampleVideoView1"
         android:layout_width="match_parent"
         android:layout_height="218dp"
+        android:src="@drawable/ncr"
+        android:padding="5dp"
+        android:tint="@color/AliceBlue"
         android:layout_marginTop="52dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></ImageView>
+        app:layout_constraintTop_toTopOf="parent"
+        ></ImageView>
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
 
+            android:fontFamily="serif"
+            android:text="Welcome "
+            android:textColor="@color/AliceBlue"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:layout_marginStart="10dp"/>
         <TextView
             android:id="@+id/textView1"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="48dp"
 
             android:fontFamily="serif"
             android:text="Introduction :"
-            android:textColor="@color/Gold"
+            android:textColor="@color/AliceBlue"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/sampleVideoView1"
-            app:layout_constraintHorizontal_bias="0.059"
-            app:layout_constraintStart_toStartOf="@+id/sampleVideoView1"
-            app:layout_constraintTop_toBottomOf="@+id/sampleVideoView1"
-            android:layout_marginStart="10dp"/>
+           android:layout_marginStart="10dp"/>
 
         <TextView
+            android:textStyle="bold"
+
+            android:fontFamily="serif"
+
+            android:background="@drawable/custom_edit_text_cut"
+            android:padding="5dp"
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="263dp"
         android:layout_marginTop="12dp"
-        android:fontFamily="serif"
             android:layout_marginStart="10dp"
-        android:text="MindSoft is an application that gives you the ability to deal with your life and work system in particular, where you can ensure the safety of your data, whether you are an employee or a company\n\n
+        android:text="An Attendance management system application that gives you the ability to deal with your life and work system in particular, where you can ensure the safety of your data, whether you are an employee or a company\n\n
 - Where employees can benefit from registering their data from attendance registration in safe ways for both parties
 \n\n
 - And the company can deal with the data of their employees faster and at the lowest cost, which solves many problems of this kind"
         android:textColor="#ffffff"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.52"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView1" />
+        android:textSize="14sp"
+
+            />
 
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/buttonNext"
         android:layout_width="307dp"
         android:layout_height="55dp"
-
+android:backgroundTint="@color/AliceBlue"
         android:layout_marginTop="8dp"
         android:text="next"
-        android:textColor="@color/black"
+        android:textColor="@color/Blue_DarkBlue"
         app:cornerRadius="20dp"
         android:layout_marginStart="50dp"
         app:layout_constraintEnd_toEndOf="@+id/textView2"

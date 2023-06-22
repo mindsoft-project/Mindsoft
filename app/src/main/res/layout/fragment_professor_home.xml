@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp">
+    android:padding="20dp"
+    android:background="@color/Blue_DarkBlue">
 
     <ImageView
         android:id="@+id/imageView4"
@@ -11,34 +12,25 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="250dp"
+        android:tint="@color/AliceBlue"
         app:srcCompat="@drawable/earth_shape" />
 
     <TextView
+        android:textStyle="bold"
+
+        android:fontFamily="serif"
+
         android:id="@+id/tv_courses"
-        android:textColor="@color/textBackground"
+        android:textColor="@color/AliceBlue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:fontFamily="@font/almarai_extra_bold"
         android:text="  Courses"
         android:drawableLeft="@drawable/ic_baseline_keyboard_double_arrow_right_24"
 
         android:textSize="25sp" />
 
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="87dp"
-        android:layout_height="58dp"
-        android:layout_alignBottom="@+id/tv_courses"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="-7dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginBottom="1dp"
-        android:layout_toEndOf="@+id/tv_courses"
-        android:src="@color/Aqua"
-        android:tint="@color/Gold" />
 
     <ImageView
         android:id="@+id/add"
@@ -48,7 +40,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="8dp"
         android:src="@drawable/ic_baseline_add_box"
-        app:tint="@color/Gold" />
+        app:tint="@color/AliceBlue" />
 
     <ImageView
         android:layout_width="match_parent"
@@ -56,7 +48,7 @@
         android:layout_below="@+id/tv_courses"
         android:layout_marginTop="20dp"
         android:src="@drawable/label_shape"
-        app:tint="@color/textGold" />
+        app:tint="@color/AliceBlue" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"

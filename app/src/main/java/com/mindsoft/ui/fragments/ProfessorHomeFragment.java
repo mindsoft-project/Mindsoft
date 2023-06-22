@@ -41,10 +41,7 @@ public class ProfessorHomeFragment extends Fragment {
         NavController navController = NavHostFragment.findNavController(this);
         Animation animation = AnimationUtils.loadAnimation(getActivity().getApplicationContext(), R.anim.base_line_anim);
         Animation animation2 = AnimationUtils.loadAnimation(getActivity().getApplicationContext(), R.anim.rotate_infinite);
-        Glide.with(this)
-                .asGif()
-                .load(R.raw.earths)
-                .into(binding.imageView5);
+
         binding.imageView4.startAnimation(animation);
         // Delay the start of the second animation for 2 seconds
         Handler handler = new Handler(Looper.getMainLooper());

@@ -2,15 +2,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:padding="20dp"
-    android:background="@color/baseBackground">
+    android:background="@color/Blue_DarkBlue">
 
     <TextView
-        android:textColor="@color/textBackground"
+        android:textStyle="bold"
+
+        android:fontFamily="serif"
+
+        android:textColor="@color/AliceBlue"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/almarai_extra_bold"
         android:text="Additional Information"
         android:textSize="25sp" />
 
@@ -19,7 +23,7 @@
         android:layout_height="2dp"
         android:layout_marginBottom="20dp"
         android:src="@drawable/label_shape"
-        android:tint="@color/Gold"/>
+        android:tint="@color/AliceBlue"/>
 
     <LinearLayout
         android:id="@+id/section_layout"
@@ -51,15 +55,16 @@
 
     </LinearLayout>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/submit"
+        app:cornerRadius="20dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-android:background="@drawable/rec_btn"
-        android:textStyle="bold"
+        android:layout_height="50dp"
         android:fontFamily="@font/font_almarai_regular"
         android:stateListAnimator="@null"
         android:text="SUBMIT"
+        android:backgroundTint="@color/AliceBlue"
+        android:textColor="@color/Blue_DarkBlue"
 
-        android:textColor="@color/on_dark" />
+        android:textStyle="bold" />
 </LinearLayout>

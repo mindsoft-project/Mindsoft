@@ -12,15 +12,16 @@
     android:layout_height="230dp">
 
     <ImageView
+        android:layout_marginStart="5dp"
         android:id="@+id/logo"
         android:layout_width="190dp"
         android:layout_height="61dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="169dp"
+        android:layout_marginTop="150dp"
         android:src="@drawable/ncr"
-        android:tint="@color/Blue_Aliceblue"
+        android:tint="@color/AliceBlue"
         tools:layout_editor_absoluteY="4dp" />
 
     <ImageView
@@ -32,7 +33,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="-57dp"
         android:layout_marginEnd="-72dp"
-        android:tint="@color/lightBlue_Aliceblue"
+        android:tint="@color/AliceBlue"
         app:srcCompat="@drawable/earth_shape"
         tools:layout_editor_absoluteX="283dp" />
 </RelativeLayout>
@@ -40,7 +41,10 @@
         android:id="@+id/scroll"
         android:layout_width="match_parent"
         android:layout_height="445dp"
-        android:layout_margin="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="10dp"
         android:background="@drawable/custom_edit_text_cut"
         android:padding="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -70,7 +74,7 @@
                 android:layout_marginBottom="5dp"
                 android:fontFamily="serif"
                 android:text=" Email Address  or  Student code"
-                android:textColor="@color/Blue_Aliceblue"
+                android:textColor="@color/AliceBlue"
                 android:textSize="18sp"
 
                 android:textStyle="bold"></TextView>
@@ -87,8 +91,8 @@
                 android:hint="  ex@example.com /  20220200"
                 android:inputType="textEmailAddress"
                 android:padding="10dp"
-                android:textColor="@color/Blue_Aliceblue"
-                android:textColorHint="@color/Blue_Aliceblue"
+                android:textColor="@color/AliceBlue"
+                android:textColorHint="@color/AliceBlue"
                 android:textSize="15sp"></EditText>
 
 
@@ -99,7 +103,7 @@
                 android:layout_marginBottom="5dp"
                 android:fontFamily="serif"
                 android:text=" Password"
-                android:textColor="@color/Blue_Aliceblue"
+                android:textColor="@color/AliceBlue"
                 android:textSize="18sp"
 
                 android:textStyle="bold" />
@@ -116,8 +120,8 @@
                 android:hint=" P@ssw0rd"
                 android:inputType="textPassword"
                 android:padding="10dp"
-                android:textColor="@color/Blue_Aliceblue"
-                android:textColorHint="@color/Blue_Aliceblue"
+                android:textColor="@color/AliceBlue"
+                android:textColorHint="@color/AliceBlue"
                 android:textSize="15sp" />
 
             <TextView
@@ -128,12 +132,12 @@
                 android:layout_marginTop="0dp"
                 android:layout_marginBottom="5dp"
                 android:background="@drawable/rec_btn"
-                android:backgroundTint="@color/Blue_Aliceblue"
+                android:backgroundTint="@color/AliceBlue"
                 android:drawableRight="@drawable/ic_baseline_remove_red_eye_24"
                 android:fontFamily="@font/font_almarai_regular"
                 android:padding="1dp"
                 android:text="   Show Password__ "
-                android:textColor="@color/Alicebule_Blue"
+                android:textColor="@color/Blue_DarkBlue"
 
                 android:textSize="15sp"
                 android:textStyle="bold" />
@@ -142,10 +146,10 @@
                 android:id="@+id/submit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/Blue_Aliceblue"
+                android:backgroundTint="@color/AliceBlue"
                 android:fontFamily="@font/font_almarai_regular"
                 android:text="Submit"
-                android:textColor="@color/Alicebule_Blue"
+                android:textColor="@color/Blue_DarkBlue"
                 android:textStyle="bold"
                 app:cornerRadius="20dp" />
 
@@ -159,7 +163,7 @@
                 android:fontFamily="serif"
                 android:text="Forget Your password?"
                 android:textAllCaps="true"
-                android:textColor="@color/Blue_Aliceblue"
+                android:textColor="@color/AliceBlue"
                 android:textSize="16sp"
 
                 android:textStyle="bold" />
@@ -173,7 +177,7 @@
                 android:fontFamily="serif"
                 android:text="Find my student code."
                 android:textAllCaps="true"
-                android:textColor="@color/Blue_Aliceblue"
+                android:textColor="@color/AliceBlue"
                 android:textSize="14sp"
                 android:textStyle="bold" />
 
@@ -185,16 +189,16 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
                 android:src="@drawable/label_shape"
-                android:tint="@color/Blue_Aliceblue" />
+                android:tint="@color/AliceBlue" />
 
             <Button
                 android:id="@+id/create"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/Blue_Aliceblue"
+                android:backgroundTint="@color/AliceBlue"
                 android:fontFamily="@font/font_almarai_regular"
                 android:text="Create account"
-                android:textColor="@color/Alicebule_Blue"
+                android:textColor="@color/Blue_DarkBlue"
                 android:textStyle="bold"
                 app:cornerRadius="20dp" />
         </LinearLayout>
@@ -204,11 +208,12 @@
         android:id="@+id/logoTitle2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textStyle="bold"
+
         android:fontFamily="serif"
         android:text="Login"
-        android:textColor="@color/Blue_Aliceblue"
+        android:textColor="@color/AliceBlue"
         android:textSize="30sp"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.049"
         app:layout_constraintStart_toStartOf="parent"

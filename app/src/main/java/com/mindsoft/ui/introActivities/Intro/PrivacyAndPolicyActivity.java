@@ -28,11 +28,11 @@ public class PrivacyAndPolicyActivity extends AppCompatActivity {
 
         Glide.with(this)
                 .asGif()
-                .load(R.raw.facescan)
+                .load(R.raw.scanning_face)
                 .into(imageView);
 
         buttonNext.setOnClickListener(v -> {
-            Intent intent = new Intent(getApplicationContext(), AboutUsActivity.class);
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
             startActivity(intent);
             finish();
         });

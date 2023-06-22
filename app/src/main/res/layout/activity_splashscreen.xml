@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.activity.SplashscreenActivity"
-    android:background="@color/baseBackground">
+    android:background="@color/Blue_DarkBlue">
 
     <View
         android:id="@+id/view1"
@@ -17,7 +17,7 @@
         android:translationY="-70dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:backgroundTint="@color/Gold"/>
+        android:backgroundTint="@color/Alicebule_Blue"/>
 
     <View
         android:id="@+id/viwe2"
@@ -28,7 +28,7 @@
         android:translationY="-70dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:backgroundTint="@color/Goldenrod"/>
+        android:backgroundTint="#EAF5FF"/>
 
     <View
         android:id="@+id/viwe3"
@@ -39,7 +39,7 @@
         android:translationY="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:backgroundTint="@color/Gold"
+        android:backgroundTint="@color/Alicebule_Blue"
         />
 
     <ImageView
@@ -53,14 +53,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.367"
-        app:tint="@color/logoColor" />
+        app:tint="@color/AliceBlue" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
         android:gravity="center"
-        android:textColor="@color/textBackground"
         android:text="Powered by \nNew Cairo Technological University"
         android:textSize="15sp"
 

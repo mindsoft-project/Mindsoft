@@ -72,5 +72,6 @@ public class SplashscreenActivity extends AppCompatActivity {
                 startActivity(main);
             }
         }, SPLASH_SCREEN_TIMEOUT);
+
     }
 }

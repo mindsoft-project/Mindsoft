@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="20dp"
-    android:background="@color/baseBackground">
+    android:background="@color/Blue_DarkBlue">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,13 +13,16 @@
         android:orientation="horizontal">
 
         <TextView
+            android:textStyle="bold"
+
+            android:fontFamily="serif"
+
             android:id="@+id/course_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:fontFamily="@font/almarai_extra_bold"
             android:text="Course Name"
-            android:textColor="@color/textBackground"
+            android:textColor="@color/AliceBlue"
             android:textSize="25sp" />
 
         <TextView
@@ -30,7 +33,7 @@
             android:fontFamily="@font/almarai_extra_bold"
             android:gravity="end"
             android:text="15"
-            android:textColor="@color/warning"
+            android:textColor="@color/AliceBlue"
             android:textSize="20sp" />
     </LinearLayout>
 
@@ -40,7 +43,7 @@
         android:layout_height="2dp"
         android:layout_marginBottom="20dp"
         android:src="@drawable/label_shape"
-        android:tint="@color/textGold"/>
+        android:tint="@color/AliceBlue"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -64,11 +67,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="@color/Gold"
+            android:backgroundTint="@color/AliceBlue"
             android:fontFamily="@font/almarai_regular"
             android:text="Export"
             android:textAllCaps="false"
-            android:textColor="@color/white" />
+            android:textColor="@color/Blue_DarkBlue" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

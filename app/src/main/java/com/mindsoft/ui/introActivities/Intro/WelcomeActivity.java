@@ -4,6 +4,8 @@ package com.mindsoft.ui.introActivities.Intro;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.VideoView;
@@ -21,11 +23,9 @@ public class WelcomeActivity extends AppCompatActivity {
         Button buttonNext = findViewById(R.id.buttonNext);
 
         ImageView imageView = findViewById(R.id.sampleVideoView1);
+        Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.base_line_anim);
+imageView.startAnimation(animation);
 
-        Glide.with(this)
-                .asGif()
-                .load(R.raw.welcome)
-                .into(imageView);
 
 
         buttonNext.setOnClickListener(v -> {

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backg"
+    android:background="@drawable/split"
     tools:context=".ui.introActivities.Intro.PrivacyAndPolicyActivity">
 <ScrollView
     android:layout_width="match_parent"
@@ -13,44 +13,51 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-        <ImageView
-            android:id="@+id/sampleImageView1"
-            android:layout_width="match_parent"
-            android:layout_height="266dp"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="74dp"
-            android:scaleType="centerCrop"
-            android:layout_centerHorizontal="true"
-            android:layout_alignParentStart="true"/>
+
+                <ImageView
+                    android:id="@+id/sampleImageView1"
+                    android:layout_width="match_parent"
+                    android:layout_height="230dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:scaleType="centerCrop"
+                    android:background="@drawable/custom_edit_text_cut"/>
+
                 <TextView
+
                     android:id="@+id/textView1"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/sampleImageView1"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentEnd="true"
                     android:layout_marginStart="10dp"
-                    android:layout_marginTop="14dp"
-                    android:layout_marginEnd="184dp"
+                    android:layout_marginTop="150dp"
+
                     android:fontFamily="serif"
                     android:text="Privacy And Policy :"
-                    android:textColor="@color/Gold"
+                    android:textColor="@color/AliceBlue"
                     android:textSize="20sp"
                     android:textStyle="bold" />
         <TextView
+            android:textStyle="bold"
+
+            android:fontFamily="serif"
+
             android:id="@+id/textView2"
-            android:layout_width="367dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textView1"
             android:layout_alignStart="@+id/textView1"
             android:layout_marginStart="10dp"
             android:layout_marginTop="13dp"
             android:layout_marginEnd="0dp"
-            android:fontFamily="serif"
-
+            android:padding="5dp"
+android:background="@drawable/custom_edit_text_cut"
             android:text="
 We protect your privacy We want you to know what information we collect and how we use it and share it with authorized people.\n\n We therefore encourage you to read the Privacy Policy. \n\nThis helps you to use our services better we hope that we can help as much as possible and improve the way we handle the environment well."
-            android:textColor="#ffffff"
+            android:textColor="@color/AliceBlue"
             android:textSize="16sp" />
 
 
@@ -66,7 +73,8 @@ We protect your privacy We want you to know what information we collect and how 
             android:layout_marginTop="24dp"
             android:layout_marginEnd="30dp"
             android:text="next"
-            android:textColor="@color/black"
+            android:backgroundTint="@color/AliceBlue"
+            android:textColor="@color/DBl"
             app:cornerRadius="20dp" />
 
         </LinearLayout>

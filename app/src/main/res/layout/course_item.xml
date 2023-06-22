@@ -7,7 +7,7 @@
     android:orientation="vertical"
     app:cardCornerRadius="10dp"
 
-    android:backgroundTint="@color/Gold"
+    android:backgroundTint="@color/AliceBlue"
 >
 
 
@@ -35,9 +35,10 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 <ImageView
+    android:backgroundTint="@color/Blue_DarkBlue"
     android:layout_width="50dp"
     android:layout_height="50dp"
-    android:tint="@color/Snow"
+    android:tint="@color/Blue_DarkBlue"
     android:src="@drawable/ic_baseline_hive_24"></ImageView>
 
                 <TextView
@@ -47,7 +48,7 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/almarai_light"
                     android:text="Test"
-                    android:textColor="#06091E"
+                    android:textColor="@color/Blue_DarkBlue"
                     android:textSize="20sp" />
 
                 <ImageView
@@ -66,7 +67,7 @@ android:visibility="gone"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/almarai_extra_bold"
                 android:text="Test"
-                android:textColor="#06091E"
+                android:textColor="@color/Blue_DarkBlue"
                 android:textSize="12sp" />
 
             <ImageView
@@ -74,7 +75,7 @@ android:visibility="gone"
                 android:layout_height="1dp"
                 android:contentDescription="@null"
                 android:src="@drawable/label_shape"
-                android:tint="@color/Snow"
+                android:tint="@color/Blue_DarkBlue"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -88,7 +89,7 @@ android:visibility="gone"
             android:layout_height="wrap_content"
             android:fontFamily="@font/almarai_regular"
             android:text="Test"
-            android:textColor="#06091E"
+            android:textColor="@color/Blue_DarkBlue"
             android:textSize="14sp" />
 
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/baseBackground"
+    android:background="@color/Blue_DarkBlue"
     android:orientation="vertical"
     android:padding="20dp">
 
@@ -14,12 +14,15 @@
         android:orientation="horizontal">
 
         <TextView
+            android:textStyle="bold"
+
+            android:fontFamily="serif"
+
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:fontFamily="@font/almarai_extra_bold"
             android:text="Pending Requests"
-            android:textColor="@color/textBackground"
+            android:textColor="@color/AliceBlue"
             android:textSize="25sp" />
 
 
@@ -42,7 +45,7 @@
         android:layout_height="2dp"
         android:layout_marginBottom="20dp"
         android:src="@drawable/label_shape"
-        app:tint="@color/textGold" />
+        app:tint="@color/AliceBlue" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
