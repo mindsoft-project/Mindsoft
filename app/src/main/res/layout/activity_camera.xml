@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/baseBackground">
+    android:background="@color/Blue_DarkBlue">
 
 
     <TextView
@@ -43,8 +43,8 @@
             android:layout_gravity="start|top"
             android:layout_margin="16dp"
             android:src="@drawable/ic_switch_camera"
-            android:tint="@color/white"
-            android:backgroundTint="@color/Gold"/>
+            android:tint="@color/Blue_DarkBlue"
+            android:backgroundTint="@color/Blue_DarkBlue"/>
 
 
         <FrameLayout
@@ -54,23 +54,22 @@
             android:layout_gravity="center"
             tools:context="org.tensorflow.demo.CameraActivity">
 
+            <TextView
+                android:id="@+id/status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/almarai_extra_bold"
+                android:gravity="top|center"
+                android:padding="5dp"
+                android:textAllCaps="false"
+                android:textColor="@color/success" />
         </FrameLayout>
-
-        <TextView
-            android:id="@+id/status"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:fontFamily="@font/almarai_extra_bold"
-            android:gravity="top|center"
-            android:padding="5dp"
-            android:textAllCaps="false"
-            android:textColor="@color/success" />
 
     </RelativeLayout>
 
     <LinearLayout
-        android:background="@color/baseBackground"
+        android:background="@color/Blue_DarkBlue"
         android:id="@+id/details"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -92,7 +91,7 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/almarai_extra_bold"
                 android:text="Full name"
-                android:textColor="@color/textBackground"
+                android:textColor="@color/AliceBlue"
                 android:textAllCaps="true" />
 
             <TextView
@@ -115,7 +114,7 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/almarai_extra_bold"
                 android:text="DEPARTMENT"
-                android:textColor="@color/textBackground"
+                android:textColor="@color/AliceBlue"
 
                 android:textAllCaps="true" />
 
@@ -140,7 +139,7 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/almarai_extra_bold"
                 android:text="YEAR / SEMESTER"
-                android:textColor="@color/textBackground"
+                android:textColor="@color/AliceBlue"
 
                 android:textAllCaps="true" />
 
@@ -162,18 +161,18 @@
             android:layout_marginTop="10dp"
             android:indeterminate="false"
             android:progress="0"
-            android:progressBackgroundTint="@color/Goldenrod"
-            android:progressTint="@color/Gold" />
+            android:progressBackgroundTint="@color/AliceBlue"
+            android:progressTint="#3E4363" />
 
         <Button
             android:id="@+id/continueProcess"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/primary"
+            android:backgroundTint="@color/AliceBlue"
             android:fontFamily="@font/font_almarai_regular"
             android:stateListAnimator="@null"
             android:text="Continue"
-            android:textColor="@color/on_dark"
+            android:textColor="@color/Blue_DarkBlue"
             android:visibility="gone" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
