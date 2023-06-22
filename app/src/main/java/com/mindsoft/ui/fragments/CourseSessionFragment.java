@@ -601,6 +601,7 @@ public class CourseSessionFragment extends Fragment {
         final UserLocation[] instructorLocation = new UserLocation[1];
         final UserLocation[] myLocation = new UserLocation[1];
 
+
         ref1.get().addOnSuccessListener(snapshot -> {
             if (!isTakingAttendance || isAlreadyAttended) {
                 Toast.makeText(requireActivity(), "The instructor is no longer taking attendance.", Toast.LENGTH_SHORT).show();
@@ -612,9 +613,10 @@ public class CourseSessionFragment extends Fragment {
                 ref2.get().addOnSuccessListener(snapshot2 -> {
                     if (snapshot2.exists() && !isAttending) {
                         myLocation[0] = snapshot2.getValue(UserLocation.class);
-                        if (myLocation[0] == null || instructorLocation[0] == null) return;
+                        System.out.println(myLocation[0] + " " + instructorLocation[0]);
+//                        if (myLocation[0] == null || instructorLocation[0] == null) return;
 
-                        System.out.println("Distance between " + myLocation[0].getLocation().distanceTo(instructorLocation[0].getLocation()));
+//                        System.out.println("Distance between " + myLocation[0].getLocation().distanceTo(instructorLocation[0].getLocation()));
 
                         isAttending = true;
 
