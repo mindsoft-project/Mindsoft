@@ -70,6 +70,7 @@ public class SignupViewModel extends ViewModel {
 
                 student.setUser(user.getReference());
                 student.setId(user.getId());
+                student.setPictureUrl("");
 
                 DocumentReference collection = db.collection(Student.COLLECTION).document(mUser.getUid());
                 collection.set(student)

@@ -48,7 +48,7 @@ public class Student {
     private int section;
 
     @PropertyName("picture")
-    private String pictureUrl;
+    private String pictureUrl = "";
 
     public String getStudentCode() {
         return studentCode;
