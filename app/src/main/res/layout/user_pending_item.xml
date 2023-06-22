@@ -9,7 +9,7 @@
         android:id="@+id/accept_background"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/success"
+        android:background="@color/Blue_DarkBlue"
         android:paddingEnd="20dp">
 
         <ImageView
@@ -20,7 +20,7 @@
             android:layout_centerVertical="true"
             android:contentDescription="@null"
             android:src="@drawable/ic_check"
-            app:tint="@color/white" />
+            app:tint="@color/AliceBlue" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -31,7 +31,7 @@
             android:fontFamily="@font/almarai_extra_bold"
             android:gravity="right"
             android:text="Accept"
-            android:textColor="@color/white"
+            android:textColor="@color/AliceBlue"
             android:textSize="18sp" />
     </RelativeLayout>
 
@@ -39,7 +39,7 @@
         android:id="@+id/user_background"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/baseBackground"
+        android:background="@color/Blue_DarkBlue"
         android:orientation="horizontal"
         android:padding="10dp">
 
@@ -66,7 +66,7 @@
                 android:fontFamily="@font/almarai_regular"
                 android:gravity="right"
                 android:text="عمر اشرف محمد عبداللطيف"
-                android:textColor="@color/textBackground"
+                android:textColor="@color/AliceBlue"
                 android:textSize="16sp" />
 
             <TextView
@@ -76,7 +76,7 @@
                 android:fontFamily="@font/almarai_regular"
                 android:gravity="right"
                 android:text="Student at ICT"
-                android:textColor="@color/textBackground"
+                android:textColor="@color/AliceBlue"
                 android:textSize="14sp" />
         </LinearLayout>
     </LinearLayout>

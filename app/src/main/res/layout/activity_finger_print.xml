@@ -4,18 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#D6CE4C"
+    android:background="@color/Blue_DarkBlue"
     tools:context=".ui.activity.FingerPrint">
 
     <TextView
+        android:textStyle="bold"
+
+        android:fontFamily="serif"
+
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
-        android:text="Welcome to FingerPrint App"
-        android:textColor="@color/black"
+        android:text=" Finger Print App Rule"
+        android:textColor="@color/AliceBlue"
         android:textSize="23sp"
-        android:textStyle="bold"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -29,6 +32,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:srcCompat="@drawable/ic_fingerprint" />
+        app:srcCompat="@drawable/ic_fingerprint"
+        android:tint="@color/AliceBlue"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,26 +3,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/baseBackground"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/Blue_DarkBlue"
     tools:context=".ui.fragments.CompleteStudentSignupFragment">
 
     <LinearLayout
-        android:layout_marginTop="50dp"
             android:padding="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <TextView
-            android:textColor="@color/textBackground"
+
+            android:fontFamily="serif"
+
+            android:textColor="@color/AliceBlue"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/font_almarai_light"
+            android:text="Welcome This is a student registration you must know that if you a student must accept all our rules We want you to know what information we collect and how we use it and share it with authorized people.\n\n "
+            android:textSize="18sp" />
+
+        <TextView
+            android:textStyle="bold"
+
+            android:fontFamily="serif"
+
+            android:textColor="@color/AliceBlue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:text="Student Code"
             android:textSize="18sp" />
 
         <EditText
-            android:textColor="@color/textBackground"
+            android:textColorHint="@color/AliceBlue"
             android:id="@+id/student_code"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -34,8 +47,8 @@
             android:hint="20200200"
             android:inputType="text"
             android:padding="10dp"
+            android:textColor="@color/AliceBlue"
             android:textSize="15sp" />
-
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -51,14 +64,18 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:textStyle="bold"
+
+                    android:fontFamily="serif"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/font_almarai_light"
                     android:text="Semester"
-                    android:textColor="@color/textBackground"
+                    android:textColor="@color/AliceBlue"
                     android:textSize="18sp" />
 
                 <EditText
+                    android:textColorHint="@color/AliceBlue"
                     android:textColor="@color/textBackground"
                     android:id="@+id/semester"
                     android:layout_width="match_parent"
@@ -81,15 +98,19 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:textStyle="bold"
+
+                    android:fontFamily="serif"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/font_almarai_light"
                     android:text="Section"
-                    android:textColor="@color/textBackground"
+                    android:textColor="@color/AliceBlue"
                     android:textSize="18sp" />
 
                 <EditText
-                    android:textColor="@color/textBackground"
+                    android:textColorHint="@color/AliceBlue"
+                    android:textColor="@color/AliceBlue"
                     android:id="@+id/section"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -112,15 +133,19 @@
             android:orientation="horizontal">
 
             <TextView
+                android:textStyle="bold"
+
+                android:fontFamily="serif"
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:fontFamily="@font/font_almarai_light"
                 android:text=" Program"
-                android:textColor="@color/textBackground"
+                android:textColor="@color/AliceBlue"
                 android:textSize="18sp" />
 
             <Spinner
+
                 android:id="@+id/program"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -132,6 +157,7 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal">
     <ImageView
+        android:tint="@color/AliceBlue"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:src="@drawable/facescanv"
@@ -139,19 +165,19 @@
         android:layout_centerHorizontal="true"
         android:layout_marginStart="30dp"></ImageView>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/next"
-        android:layout_width="238dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="30dp"
-        android:background="@drawable/rec_btn"
+        android:backgroundTint="@color/AliceBlue"
         android:fontFamily="@font/font_almarai_regular"
         android:stateListAnimator="@null"
         android:text="Recognize Your Face"
-        android:textColor="@color/on_dark"
-        android:textStyle="bold" />
-
+        android:textColor="@color/Blue_DarkBlue"
+        android:textStyle="bold"
+        app:cornerRadius="20dp" />
 
 
 </LinearLayout>

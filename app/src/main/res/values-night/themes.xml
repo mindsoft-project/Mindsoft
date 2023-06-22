@@ -1,12 +1,12 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <style name="Theme.Mindsoft" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/Gold</item>
-        <item name="colorPrimaryVariant">@color/Goldenrod</item>
+        <item name="colorPrimary">#202339</item>
+        <item name="colorPrimaryVariant">#202339</item>
         <item name="colorOnPrimary">@color/on_dark</item>
 
-        <item name="colorSecondary">@color/secondary</item>
-        <item name="colorSecondaryVariant">@color/secondary</item>
+        <item name="colorSecondary">#383D63</item>
+        <item name="colorSecondaryVariant">#383D63</item>
         <item name="colorOnSecondary">@color/on_light</item>
 
         <item name="android:textColor">@color/on_dark</item>
@@ -20,10 +20,17 @@
     <color name="baseBackground">#06091E</color>
     <color name="darkBackground">@color/Snow</color>
     <color name="lightBackground">@color/Snow</color>
-    <color name="textBackground">@color/Snow</color>
+    <color name="textBackground">@color/AliceBlue</color>
     <color name="buttonBackground">@color/Gold</color>
     <color name="logoColor">@color/white</color>
     <color name="textGold">@color/white</color>
     <color name="logoInversColor">#06091E</color>
+    <color name="Alicebule_Blue">#495BCC</color>
+    <color name="Blue_Aliceblue">@color/AliceBlue</color>
+    <color name="lightBlue_Aliceblue">@color/AliceBlue</color>
+    <color name="Blue_DarkBlue">#202339</color>
+    <color name="Bl">#495BCC</color>
+    <color name="DarkBlue_Blue">#495BCC</color>
+    <color name="DBl">#202339</color>
 
 </resources>
