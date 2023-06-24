@@ -8,6 +8,7 @@
     android:background="@color/Blue_DarkBlue">
 
     <ScrollView
+        android:layout_marginTop="50dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"

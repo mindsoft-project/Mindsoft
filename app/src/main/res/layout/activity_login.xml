@@ -6,37 +6,41 @@
     android:layout_height="match_parent"
     android:background="@drawable/shape_background"
     tools:context=".ui.activity.LoginActivity">
-<RelativeLayout
-    android:id="@+id/relativeLayout"
-    android:layout_width="match_parent"
-    android:layout_height="230dp">
 
-    <ImageView
-        android:layout_marginStart="5dp"
-        android:id="@+id/logo"
-        android:layout_width="190dp"
-        android:layout_height="61dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="150dp"
-        android:src="@drawable/ncr"
-        android:tint="@color/AliceBlue"
-        tools:layout_editor_absoluteY="4dp" />
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="225dp"
-        android:layout_height="217dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="-57dp"
-        android:layout_marginEnd="-72dp"
-        android:tint="@color/AliceBlue"
-        app:srcCompat="@drawable/earth_shape"
-        tools:layout_editor_absoluteX="283dp" />
-</RelativeLayout>
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="190dp"
+            android:layout_height="61dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="150dp"
+            android:src="@drawable/ncr"
+            android:tint="@color/AliceBlue"
+            tools:layout_editor_absoluteY="4dp" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="225dp"
+            android:layout_height="217dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="-57dp"
+            android:layout_marginEnd="-72dp"
+            android:tint="@color/AliceBlue"
+            app:srcCompat="@drawable/earth_shape"
+            tools:layout_editor_absoluteX="283dp" />
+    </RelativeLayout>
     <ScrollView
         android:id="@+id/scroll"
         android:layout_width="match_parent"
