@@ -22,7 +22,7 @@
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
                     android:scaleType="centerCrop"
-                    android:background="@drawable/custom_edit_text_cut"/>
+/>
 
                 <TextView
 
