@@ -64,18 +64,19 @@ We protect your privacy We want you to know what information we collect and how 
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/buttonNext"
-            android:layout_width="307dp"
+            android:layout_width="match_parent"
             android:layout_height="55dp"
             android:layout_below="@+id/textView2"
             android:layout_alignStart="@+id/textView2"
             android:layout_alignEnd="@+id/textView2"
-            android:layout_marginStart="50dp"
             android:layout_marginTop="24dp"
-            android:layout_marginEnd="30dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             android:text="next"
             android:backgroundTint="@color/AliceBlue"
             android:textColor="@color/DBl"
-            app:cornerRadius="20dp" />
+            app:cornerRadius="20dp"
+            />
 
         </LinearLayout>
 </ScrollView>

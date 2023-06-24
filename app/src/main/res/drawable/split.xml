@@ -2,10 +2,10 @@
     <gradient
         android:type="linear"
         android:startColor="@color/DBl"
-        android:endColor="@color/white"
+        android:endColor="@color/Black"
         android:angle="90"
         android:centerY="70%"
-        android:centerColor="@color/white"
+        android:centerColor="@color/Black"
         />
 </shape>
 

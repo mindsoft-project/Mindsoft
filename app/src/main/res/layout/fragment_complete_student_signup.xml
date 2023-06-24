@@ -12,7 +12,35 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+        <ImageView
 
+            android:id="@+id/logo2"
+            android:layout_width="236dp"
+            android:layout_height="85dp"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/ncr"
+            android:tint="@color/AliceBlue"
+            tools:layout_editor_absoluteY="4dp" />
+        <TextView
+            android:id="@+id/pageTitle2"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="serif"
+            android:text="Sign Up"
+            android:textColor="@color/AliceBlue"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="242dp"></TextView>
+        <ImageView
+            android:layout_marginTop="2dp"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:src="@drawable/label_shape"
+            android:tint="@color/AliceBlue"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
         <TextView
 
             android:fontFamily="serif"
