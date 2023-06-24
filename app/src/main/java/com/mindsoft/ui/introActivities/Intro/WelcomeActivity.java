@@ -23,8 +23,12 @@ public class WelcomeActivity extends AppCompatActivity {
         Button buttonNext = findViewById(R.id.buttonNext);
 
         ImageView imageView = findViewById(R.id.sampleVideoView1);
+        ImageView imageView2 = findViewById(R.id.sampleVideoView2);
+
         Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.base_line_anim);
 imageView.startAnimation(animation);
+        Animation animation2 = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.base_line_anim);
+        imageView2.startAnimation(animation2);
 
 
 
