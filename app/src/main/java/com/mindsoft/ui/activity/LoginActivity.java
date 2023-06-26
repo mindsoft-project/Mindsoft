@@ -1,5 +1,6 @@
 package com.mindsoft.ui.activity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
@@ -26,7 +27,7 @@ import com.mindsoft.ui.viewmodel.LoginViewModel;
 public class LoginActivity extends AppCompatActivity {
 
     private ActivityLoginBinding binding;
-
+    private ProgressDialog progressDialog;
     private LoginViewModel viewModel;
 
     @Override
@@ -39,6 +40,15 @@ public class LoginActivity extends AppCompatActivity {
         binding.imageView6.startAnimation(animation2);
         viewModel = new ViewModelProvider(this).get(LoginViewModel.class);
         //----------------------------------------------------------------------------------
+
+        progressDialog = new ProgressDialog(LoginActivity.this);
+        progressDialog.setMessage("Logging in...");
+        progressDialog.setIndeterminate(true);
+        progressDialog.setCancelable(false);
+
+
+
+
 
 
         if (!Constants.ACCOUNT_CREATION) {
@@ -91,7 +101,7 @@ public class LoginActivity extends AppCompatActivity {
 
             binding.submit.setAlpha(0.5f);
             binding.submit.setEnabled(false);
-
+            progressDialog.show();
             viewModel.loginUser(email, password, new LoginViewModel.OnLoginListener() {
                 @Override
                 public void onSuccess() {
@@ -107,6 +117,7 @@ public class LoginActivity extends AppCompatActivity {
                                     Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                     startActivity(intent);
+                                    progressDialog.dismiss();
                                 });
                     }
                 }
@@ -117,6 +128,7 @@ public class LoginActivity extends AppCompatActivity {
                     binding.submit.setEnabled(true);
                     AlertDialog alertDialog = new AlertDialog.Builder(LoginActivity.this).setTitle("Login Error").setMessage(message).create();
                     alertDialog.show();
+                    progressDialog.dismiss();
                 }
             });
         });
