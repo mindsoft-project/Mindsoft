@@ -181,7 +181,9 @@ public class CourseSessionFragment extends Fragment {
                                 attendance.setSessionId(sessionId);
                                 attendance.setTaking(false);
                                 students.forEach(user -> {
-                                    attendance.getAttended().put(user.getId(), false);
+                                    if (User.current.hasRole(Role.STUDENT) && User.current.getId().equals(user.getId())) {
+                                        attendance.getAttended().put(user.getId(), false);
+                                    }
                                 });
                                 database.getReference("course_attendance").child(sessionId).setValue(attendance);
                             }
