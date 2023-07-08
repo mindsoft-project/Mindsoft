@@ -111,17 +111,20 @@ public class CourseRepository {
     public MutableLiveData<List<User>> getEnrolledUsers(Course course) {
         MutableLiveData<List<User>> students = new MutableLiveData<>();
 
-        System.out.println(course.getEnrolledByIds());
         if (course.getEnrolledByIds().isEmpty()) {
             return students;
         }
 
-        FirebaseFirestore.getInstance()
+        if (User.current.hasRole(Role.STUDENT) && course.getEnrolledByIds().contains(User.current.getId())) {
+            List<User> studentList = new ArrayList<>();
+            studentList.add(User.current);
+            students.postValue(studentList)
+        } else {
+            FirebaseFirestore.getInstance()
                 .collection(User.COLLECTION)
                 .get()
                 .addOnCompleteListener(command -> {
                     if (command.isSuccessful()) {
-                        List<User> studentList = new ArrayList<>();
                         List<DocumentSnapshot> snapshots = command.getResult().getDocuments();
 
                         for (DocumentSnapshot snapshot : snapshots) {
@@ -131,13 +134,14 @@ public class CourseRepository {
                             }
                         }
 
-                        System.out.println(studentList);
                         students.postValue(studentList);
                     } else {
                         System.out.println(command.getException().getMessage());
                     }
 
                 });
+        }
+
         return students;
 
     }
